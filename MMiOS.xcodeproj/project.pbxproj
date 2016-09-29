@@ -17,6 +17,8 @@
 		884A21791D7B93620017EB42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 884A21771D7B93620017EB42 /* LaunchScreen.storyboard */; };
 		884A21841D7B93620017EB42 /* MMiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884A21831D7B93620017EB42 /* MMiOSTests.swift */; };
 		884A218F1D7B93620017EB42 /* MMiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884A218E1D7B93620017EB42 /* MMiOSUITests.swift */; };
+		88AF95D21D9CDB3300FAEEA6 /* ColorWeel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AF95D11D9CDB3300FAEEA6 /* ColorWeel.swift */; };
+		88AF95D41D9CDB4200FAEEA6 /* MainMusicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AF95D31D9CDB4200FAEEA6 /* MainMusicVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		884A218A1D7B93620017EB42 /* MMiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MMiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		884A218E1D7B93620017EB42 /* MMiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMiOSUITests.swift; sourceTree = "<group>"; };
 		884A21901D7B93620017EB42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88AF95D11D9CDB3300FAEEA6 /* ColorWeel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorWeel.swift; path = "/Users/Renato/Documents/Projects XCode/MMiOS/MMiOS/../../FunFacts/FunFacts/ColorWeel.swift"; sourceTree = "<absolute>"; };
+		88AF95D31D9CDB4200FAEEA6 /* MainMusicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainMusicVC.swift; path = "../../Documents/Projects XCode/MMiOS/MMiOS/MainMusicVC.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,7 @@
 		884A219D1D7B93A30017EB42 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				88AF95D31D9CDB4200FAEEA6 /* MainMusicVC.swift */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -161,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				884A216D1D7B93620017EB42 /* ViewController.swift */,
+				88AF95D11D9CDB3300FAEEA6 /* ColorWeel.swift */,
 				884A216F1D7B93620017EB42 /* Main.storyboard */,
 			);
 			name = Main;
@@ -302,6 +308,8 @@
 			files = (
 				884A216E1D7B93620017EB42 /* ViewController.swift in Sources */,
 				884A216C1D7B93620017EB42 /* AppDelegate.swift in Sources */,
+				88AF95D21D9CDB3300FAEEA6 /* ColorWeel.swift in Sources */,
+				88AF95D41D9CDB4200FAEEA6 /* MainMusicVC.swift in Sources */,
 				3DE69E7A1D9CAB3500A590E5 /* VideoSelectionTableViewController.swift in Sources */,
 				884A21741D7B93620017EB42 /* MMiOS.xcdatamodeld in Sources */,
 				3DE69E7C1D9CB1C600A590E5 /* VideoTableViewCell.swift in Sources */,

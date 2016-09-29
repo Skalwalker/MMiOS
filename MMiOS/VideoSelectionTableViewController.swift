@@ -10,8 +10,11 @@ import UIKit
 
 class VideoSelectionTableViewController: UITableViewController {
 
+    var backgroundColor = ColorWeel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -20,6 +23,11 @@ class VideoSelectionTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        view.backgroundColor = backgroundColor.randomColor()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
