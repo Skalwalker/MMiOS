@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3DE69E7A1D9CAB3500A590E5 /* VideoSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE69E791D9CAB3500A590E5 /* VideoSelectionTableViewController.swift */; };
+		3DE69E7C1D9CB1C600A590E5 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE69E7B1D9CB1C600A590E5 /* VideoTableViewCell.swift */; };
 		884A216C1D7B93620017EB42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884A216B1D7B93620017EB42 /* AppDelegate.swift */; };
 		884A216E1D7B93620017EB42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884A216D1D7B93620017EB42 /* ViewController.swift */; };
 		884A21711D7B93620017EB42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 884A216F1D7B93620017EB42 /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3DE69E791D9CAB3500A590E5 /* VideoSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSelectionTableViewController.swift; sourceTree = "<group>"; };
+		3DE69E7B1D9CB1C600A590E5 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		884A21681D7B93620017EB42 /* MMiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		884A216B1D7B93620017EB42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		884A216D1D7B93620017EB42 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 		884A219C1D7B93860017EB42 /* Video */ = {
 			isa = PBXGroup;
 			children = (
+				3DE69E791D9CAB3500A590E5 /* VideoSelectionTableViewController.swift */,
+				3DE69E7B1D9CB1C600A590E5 /* VideoTableViewCell.swift */,
 			);
 			name = Video;
 			sourceTree = "<group>";
@@ -296,7 +302,9 @@
 			files = (
 				884A216E1D7B93620017EB42 /* ViewController.swift in Sources */,
 				884A216C1D7B93620017EB42 /* AppDelegate.swift in Sources */,
+				3DE69E7A1D9CAB3500A590E5 /* VideoSelectionTableViewController.swift in Sources */,
 				884A21741D7B93620017EB42 /* MMiOS.xcdatamodeld in Sources */,
+				3DE69E7C1D9CB1C600A590E5 /* VideoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
