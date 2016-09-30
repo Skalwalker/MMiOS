@@ -1,6 +1,6 @@
 //
 //  ColorWeel.swift
-//  FunFacts
+//  MMiOS
 //
 //  Created by Renato Nobre on 29/11/14.
 //  Copyright (c) 2014 Haze. All rights reserved.
