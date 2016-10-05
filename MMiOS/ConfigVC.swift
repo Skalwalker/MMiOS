@@ -11,12 +11,11 @@ import UIKit
 class ConfigVC: UIViewController {
 
     var backColor = ColorWeel()
-    
+   
     @IBOutlet weak var settingsLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         settingsLabel.textColor = UIColor.white
         // Do any additional setup after loading the view.
@@ -29,6 +28,7 @@ class ConfigVC: UIViewController {
     
 
     override func viewDidAppear(_ animated: Bool) {
+        
         view.backgroundColor = backColor.randomColor()
     }
     /*

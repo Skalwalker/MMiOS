@@ -20,6 +20,7 @@
 		884A21841D7B93620017EB42 /* MMiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884A21831D7B93620017EB42 /* MMiOSTests.swift */; };
 		884A218F1D7B93620017EB42 /* MMiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884A218E1D7B93620017EB42 /* MMiOSUITests.swift */; };
 		886D62591D9D2BEC0049E552 /* MainMusicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886D62581D9D2BEC0049E552 /* MainMusicVC.swift */; };
+		8891FB6F1DA5A86E00D964D4 /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8891FB6E1DA5A86E00D964D4 /* AudioController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		884A218E1D7B93620017EB42 /* MMiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMiOSUITests.swift; sourceTree = "<group>"; };
 		884A21901D7B93620017EB42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		886D62581D9D2BEC0049E552 /* MainMusicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMusicVC.swift; sourceTree = "<group>"; };
+		8891FB6E1DA5A86E00D964D4 /* AudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		8807036A1D9ED5DF0056208E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8891FB6E1DA5A86E00D964D4 /* AudioController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				880703721D9EE8850056208E /* AboutMeVC.swift in Sources */,
+				8891FB6F1DA5A86E00D964D4 /* AudioController.swift in Sources */,
 				884A216C1D7B93620017EB42 /* AppDelegate.swift in Sources */,
 				886D62591D9D2BEC0049E552 /* MainMusicVC.swift in Sources */,
 				3DE69E7A1D9CAB3500A590E5 /* VideoSelectionTableViewController.swift in Sources */,

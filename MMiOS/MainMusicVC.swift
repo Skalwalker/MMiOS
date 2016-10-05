@@ -16,8 +16,10 @@ class MainMusicVC: UIViewController {
    
     @IBOutlet weak var artistsButton: UIButton!
     @IBOutlet weak var playlistsButton: UIButton!
+    @IBOutlet weak var buttonToPlaying: UIButton!
     
     var backColor = ColorWeel()
+    var controller = AudioController()
     
     @IBOutlet weak var bottomView: UIView!
     
@@ -40,8 +42,21 @@ class MainMusicVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         view.backgroundColor = backColor.randomColor()
+        hideBottomView()
+      
     }
 
+    func hideBottomView(){
+        print(controller.getPlaying())
+        if(controller.getPlaying() == false){
+            bottomView.isHidden = true
+            buttonToPlaying.isEnabled = false
+        } else {
+            bottomView.isHidden = false
+            buttonToPlaying.isEnabled = true
+        }
+    }
+    
     func setColors(){
         
         let buttons = [artistsButton, albunsButton, playlistsButton]

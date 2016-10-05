@@ -392,7 +392,7 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bPR-Im-fQr" userLabel="Bottom View">
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="69442C92-9917-4AC5-9149-3692100651C1" translatesAutoresizingMaskIntoConstraints="NO" id="WEe-NN-31p" userLabel="Music Album">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mzi.zdsarhql.600x600-75" translatesAutoresizingMaskIntoConstraints="NO" id="WEe-NN-31p" userLabel="Music Album">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="52" id="eVg-OM-PaQ"/>
                                             <constraint firstAttribute="height" constant="52" id="kxS-Nf-9sk"/>
@@ -428,9 +428,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRn-3N-b5d" userLabel="FastFoward">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="JwU-oE-K6N"/>
-                                            <constraint firstAttribute="width" constant="15" id="d6l-Vp-J5K"/>
+                                            <constraint firstAttribute="width" constant="25" id="d6l-Vp-J5K"/>
                                         </constraints>
-                                        <state key="normal" image="Pause"/>
+                                        <state key="normal" image="FastFoward"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.25291593309859156" colorSpace="calibratedWhite"/>
@@ -497,6 +497,7 @@
                         <outlet property="albunsButton" destination="u7f-jY-8xm" id="rKW-uD-US2"/>
                         <outlet property="artistsButton" destination="FIu-KV-MoU" id="9Z4-Ol-jaI"/>
                         <outlet property="bottomView" destination="bPR-Im-fQr" id="I3R-TB-2ux"/>
+                        <outlet property="buttonToPlaying" destination="Zbf-sA-5gm" id="RSj-x5-ZO0"/>
                         <outlet property="libraryLabel" destination="CTG-wK-7wg" id="BRN-VK-Ww1"/>
                         <outlet property="playingMusicName" destination="oy6-QU-ybc" id="NqJ-Mf-RDF"/>
                         <outlet property="playlistsButton" destination="aBa-lf-ij0" id="BSY-qm-S0x"/>
@@ -534,7 +535,7 @@
                                     <constraint firstAttribute="height" constant="60" id="h2X-Ur-W1i"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ysm-ly-eqm" userLabel="Album View">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mzi.zdsarhql.600x600-75" translatesAutoresizingMaskIntoConstraints="NO" id="Ysm-ly-eqm" userLabel="Album View">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="AbO-85-awj"/>
                                     <constraint firstAttribute="width" constant="240" id="Yfh-DV-QbA"/>
@@ -557,27 +558,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="69442C92-9917-4AC5-9149-3692100651C1" width="1500" height="1500">
-            <mutableData key="keyedArchiveRepresentation">
-YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
-GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
-V05TQ29sb3KAAoAMEiTAAACAA4AKXHsxNTAwLCAxNTAwfdIVChYYWk5TLm9iamVjdHOhF4AEgAnSFQoa
-GKIbHIAFgAaACRAF0yAKISIjJFdOUy5iYXNlW05TLnJlbGF0aXZlgACACIAHXxCGZmlsZTovLy9Vc2Vy
-cy9SZW5hdG8vRG93bmxvYWRzL1hjb2RlLmFwcC9Db250ZW50cy9QbHVnSW5zL0lERUludGVyZmFjZUJ1
-aWxkZXJLaXQuaWRlcGx1Z2luL0NvbnRlbnRzL1Jlc291cmNlcy9JQk1pc3NpbmdJbWFnZUdseXBoLnRp
-ZmbSJygpKlokY2xhc3NuYW1lWCRjbGFzc2VzVU5TVVJMoikrWE5TT2JqZWN00icoLS5XTlNBcnJheaIt
-K9MwMQoyMzRXTlNXaGl0ZVxOU0NvbG9yU3BhY2VEMCAwABADgAvSJyg2N1dOU0NvbG9yojYr0icoOTpX
-TlNJbWFnZaI5K18QD05TS2V5ZWRBcmNoaXZlctE9PlRyb290gAEACAARABoAIwAtADIANwBFAEsAVgBd
-AGQAcQB4AIAAggCEAIkAiwCNAJoAnwCqAKwArgCwALUAuAC6ALwAvgDAAMcAzwDbAN0A3wDhAWoBbwF6
-AYMBiQGMAZUBmgGiAaUBrAG0AcEBxgHIAcoBzwHXAdoB3wHnAeoB/AH/AgQAAAAAAAACAQAAAAAAAAA/
-AAAAAAAAAAAAAAAAAAACBg
-</mutableData>
-        </image>
         <image name="9919" width="460" height="460"/>
+        <image name="FastFoward" width="100" height="100"/>
         <image name="Music" width="25" height="25"/>
-        <image name="Pause" width="37" height="75"/>
         <image name="Play" width="100" height="100"/>
         <image name="Video" width="25" height="25"/>
+        <image name="mzi.zdsarhql.600x600-75" width="600" height="600"/>
         <image name="trabalhar-na-UnB" width="315" height="315"/>
     </resources>
 </document>
