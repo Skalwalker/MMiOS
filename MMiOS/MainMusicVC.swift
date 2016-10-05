@@ -17,16 +17,21 @@ class MainMusicVC: UIViewController {
     @IBOutlet weak var artistsButton: UIButton!
     @IBOutlet weak var playlistsButton: UIButton!
     
-    @IBOutlet weak var tabBarMusics: UITabBarItem!
-    
     var backColor = ColorWeel()
+    
+    @IBOutlet weak var bottomView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setColors()
         
+        //This should not be here
+        UITabBar.appearance().tintColor = UIColor.white
+        
+        //This is a default prop.
         playingMusicName.text = "Ain't No Rest For The Wicked"
+      
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,16 +45,27 @@ class MainMusicVC: UIViewController {
     func setColors(){
         
         let buttons = [artistsButton, albunsButton, playlistsButton]
-        
+        let labels = [playingMusicName, libraryLabel]
         
         for button in buttons{
             button?.setTitleColor(UIColor.white, for: UIControlState.normal)
             button?.setTitleColor(UIColor.white.withAlphaComponent(0.8), for: UIControlState.highlighted)
         }
+        for label in labels{
+            label?.textColor = UIColor.white
+        }
         
-        libraryLabel.textColor = UIColor.white
-
-
+        blurBottomView()
+    }
+    
+    func blurBottomView(){
+        if !UIAccessibilityIsReduceTransparencyEnabled(){
+            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            
+            blurEffectView.frame = self.bottomView.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        }
     }
 
 }

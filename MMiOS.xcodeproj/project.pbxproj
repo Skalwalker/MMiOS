@@ -13,7 +13,6 @@
 		880703721D9EE8850056208E /* AboutMeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880703711D9EE8850056208E /* AboutMeVC.swift */; };
 		880703751D9EE9320056208E /* ConfigVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880703741D9EE9320056208E /* ConfigVC.swift */; };
 		884A216C1D7B93620017EB42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884A216B1D7B93620017EB42 /* AppDelegate.swift */; };
-		884A216E1D7B93620017EB42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884A216D1D7B93620017EB42 /* ViewController.swift */; };
 		884A21711D7B93620017EB42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 884A216F1D7B93620017EB42 /* Main.storyboard */; };
 		884A21741D7B93620017EB42 /* MMiOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 884A21721D7B93620017EB42 /* MMiOS.xcdatamodeld */; };
 		884A21761D7B93620017EB42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 884A21751D7B93620017EB42 /* Assets.xcassets */; };
@@ -48,7 +47,6 @@
 		880703741D9EE9320056208E /* ConfigVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigVC.swift; sourceTree = "<group>"; };
 		884A21681D7B93620017EB42 /* MMiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		884A216B1D7B93620017EB42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		884A216D1D7B93620017EB42 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		884A21701D7B93620017EB42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		884A21731D7B93620017EB42 /* MMiOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MMiOS.xcdatamodel; sourceTree = "<group>"; };
 		884A21751D7B93620017EB42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -204,7 +202,6 @@
 			isa = PBXGroup;
 			children = (
 				880703661D9ED4330056208E /* ColorWeel.swift */,
-				884A216D1D7B93620017EB42 /* ViewController.swift */,
 				884A216F1D7B93620017EB42 /* Main.storyboard */,
 			);
 			name = Main;
@@ -345,7 +342,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				880703721D9EE8850056208E /* AboutMeVC.swift in Sources */,
-				884A216E1D7B93620017EB42 /* ViewController.swift in Sources */,
 				884A216C1D7B93620017EB42 /* AppDelegate.swift in Sources */,
 				886D62591D9D2BEC0049E552 /* MainMusicVC.swift in Sources */,
 				3DE69E7A1D9CAB3500A590E5 /* VideoSelectionTableViewController.swift in Sources */,

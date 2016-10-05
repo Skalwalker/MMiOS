@@ -14,15 +14,12 @@ class AboutMeVC: UIViewController {
     @IBOutlet weak var textBoxOne: UITextView!
     @IBOutlet weak var textBoxTwo: UITextView!
     @IBOutlet weak var textBoxThree: UITextView!
+    @IBOutlet weak var aboutMeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let textBoxes = [textBoxOne, textBoxTwo, textBoxThree]
-        
-        for textBox in textBoxes{
-            textBox?.textColor = UIColor.white
-        }
+        setColor()
         
         // Do any additional setup after loading the view.
     }
@@ -36,6 +33,18 @@ class AboutMeVC: UIViewController {
         view.backgroundColor = backColor.randomColor()
     }
 
+    
+    func setColor(){
+        let textBoxes = [textBoxOne, textBoxTwo, textBoxThree]
+        
+        for textBox in textBoxes{
+            textBox?.textColor = UIColor.white
+        }
+        
+        aboutMeLabel.textColor = UIColor.white
+        
+        
+    }
     /*
     // MARK: - Navigation
 
