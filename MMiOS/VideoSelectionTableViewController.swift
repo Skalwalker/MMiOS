@@ -10,11 +10,14 @@ import UIKit
 
 class VideoSelectionTableViewController: UITableViewController {
 
+    
+    @IBOutlet weak var videosLibrary: UILabel!
     var backgroundColor = ColorWeel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        videosLibrary.textColor = UIColor.white
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

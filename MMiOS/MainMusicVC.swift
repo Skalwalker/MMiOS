@@ -60,7 +60,7 @@ class MainMusicVC: UIViewController {
     
     func blurBottomView(){
         if !UIAccessibilityIsReduceTransparencyEnabled(){
-            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.regular)
             let blurEffectView = UIVisualEffectView(effect: blurEffect)
             
             blurEffectView.frame = self.bottomView.bounds
