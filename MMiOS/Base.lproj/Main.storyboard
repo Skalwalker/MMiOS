@@ -392,7 +392,7 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bPR-Im-fQr" userLabel="Bottom View">
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="8015DCD9-87DE-4D46-956E-D4BB82D5490C" translatesAutoresizingMaskIntoConstraints="NO" id="WEe-NN-31p" userLabel="Music Album">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="69442C92-9917-4AC5-9149-3692100651C1" translatesAutoresizingMaskIntoConstraints="NO" id="WEe-NN-31p" userLabel="Music Album">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="52" id="eVg-OM-PaQ"/>
                                             <constraint firstAttribute="height" constant="52" id="kxS-Nf-9sk"/>
@@ -557,7 +557,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="8015DCD9-87DE-4D46-956E-D4BB82D5490C" width="1500" height="1500">
+        <image name="69442C92-9917-4AC5-9149-3692100651C1" width="1500" height="1500">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz

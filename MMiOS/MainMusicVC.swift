@@ -27,7 +27,7 @@ class MainMusicVC: UIViewController {
         setColors()
         
         //This should not be here
-        UITabBar.appearance().tintColor = UIColor.white
+        UITabBar.appearance().tintColor = UIColor.black
         
         //This is a default prop.
         playingMusicName.text = "Ain't No Rest For The Wicked"
