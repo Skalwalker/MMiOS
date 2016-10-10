@@ -18,6 +18,8 @@ class MainMusicVC: UIViewController {
     @IBOutlet weak var playlistsButton: UIButton!
     @IBOutlet weak var buttonToPlaying: UIButton!
     
+    @IBOutlet weak var musicTableView: UITableView!
+    
     var backColor = ColorWeel()
     var controller = AudioController()
     
@@ -33,6 +35,8 @@ class MainMusicVC: UIViewController {
         
         //This is a default prop.
         playingMusicName.text = "Ain't No Rest For The Wicked"
+        
+        
       
     }
 
@@ -82,5 +86,5 @@ class MainMusicVC: UIViewController {
             blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         }
     }
-
+    
 }

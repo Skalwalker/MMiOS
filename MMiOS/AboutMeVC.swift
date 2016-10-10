@@ -42,9 +42,9 @@ class AboutMeVC: UIViewController {
         }
         
         aboutMeLabel.textColor = UIColor.white
-        
-        
     }
+    
+    
     /*
     // MARK: - Navigation
 

@@ -2,9 +2,8 @@
 //  ColorWeel.swift
 //  MMiOS
 //
-//  Created by Renato Nobre on 29/11/14.
-//  Copyright (c) 2014 Haze. All rights reserved.
-//
+//  Created by Renato Nobre on 08/10/16.
+//  Copyright (c) 2014 Roadway to SS. All rights reserved.
 
 import Foundation
 import UIKit

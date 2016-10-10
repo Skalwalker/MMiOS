@@ -43,17 +43,23 @@ class PlayingMusicVC: UIViewController {
     }
 
     func setColors(){
-        let buttons = [playButton, backButton, nextButtom]
-      
+        
+        let buttons: [UIButton: String] = [playButton: "Play", backButton: "FastBackwards",
+                                           nextButtom: "FastFoward"]
+        
+        
+        for (button, imageName) in buttons{
+            let image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
+            button.setImage(image, for: .normal)
+            button.tintColor = UIColor.white
+        }
+        
         let labels = [musicName, albumName, artistName, playingMusicLabel]
         
         for label in labels{
             label?.textColor = UIColor.white
         }
         
-        for button in buttons{
-            
-            button?.imageView?.alpha = 0.25
-        }
+       
     }
 }
