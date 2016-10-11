@@ -62,15 +62,16 @@ class AboutMeVC: UIViewController {
         }
         
     }
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func gitHub(_ sender: AnyObject) {
+        let url = NSURL(string: "https://github.com/Skalwalker/MMiOS")
+        UIApplication.shared.open(url as! URL, options: [:], completionHandler: nil)
     }
-    */
+    
+    @IBAction func unb(_ sender: AnyObject) {
+        let url = NSURL(string: "http://www.unb.br")
+        UIApplication.shared.open(url as! URL, options: [:], completionHandler: nil)
+
+    }
 
 }

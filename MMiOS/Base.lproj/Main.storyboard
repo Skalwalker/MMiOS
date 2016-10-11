@@ -256,6 +256,9 @@
                                     <constraint firstAttribute="height" constant="100" id="scY-Nm-osO"/>
                                 </constraints>
                                 <state key="normal" image="trabalhar-na-UnB"/>
+                                <connections>
+                                    <action selector="unb:" destination="Wyd-lq-rAw" eventType="touchUpInside" id="fY0-dn-uPB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMb-pG-rsF">
                                 <constraints>
@@ -263,6 +266,9 @@
                                     <constraint firstAttribute="height" constant="100" id="gvg-lF-T21"/>
                                 </constraints>
                                 <state key="normal" image="github-512"/>
+                                <connections>
+                                    <action selector="gitHub:" destination="Wyd-lq-rAw" eventType="touchUpInside" id="F8e-Vw-44P"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TVU-a6-7Lh" userLabel="TopView">
                                 <subviews>
@@ -428,6 +434,10 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="deQ-Zf-iuo" id="WS4-93-cKw"/>
+                                    <outlet property="delegate" destination="deQ-Zf-iuo" id="Xyz-fQ-Z7h"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bPR-Im-fQr" userLabel="Bottom View">
                                 <subviews>
@@ -536,7 +546,7 @@
                         <outlet property="bottomView" destination="bPR-Im-fQr" id="I3R-TB-2ux"/>
                         <outlet property="buttonToPlaying" destination="Zbf-sA-5gm" id="RSj-x5-ZO0"/>
                         <outlet property="libraryLabel" destination="CTG-wK-7wg" id="BRN-VK-Ww1"/>
-                        <outlet property="musicTableView" destination="L1o-bo-lPP" id="rWA-Jw-PuT"/>
+                        <outlet property="musicTV" destination="L1o-bo-lPP" id="pav-cF-ROq"/>
                         <outlet property="playingMusicName" destination="oy6-QU-ybc" id="NqJ-Mf-RDF"/>
                         <outlet property="playlistsButton" destination="aBa-lf-ij0" id="BSY-qm-S0x"/>
                         <outlet property="tabBarItem" destination="vuH-k9-IdY" id="B5S-R1-IzW"/>
@@ -593,12 +603,6 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="Yfh-DV-QbA"/>
                                 </constraints>
                             </imageView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="cAG-w3-G0W">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="JR2-gj-KOA"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="UZp-cW-7YC"/>
-                                </constraints>
-                            </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oT0-Ik-2q3">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="UXQ-tc-zMs"/>
@@ -692,6 +696,12 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="cAG-w3-G0W">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="JR2-gj-KOA"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="UZp-cW-7YC"/>
+                                </constraints>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -753,6 +763,6 @@
         <image name="trabalhar-na-UnB" width="315" height="315"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xRz-nb-GsU"/>
+        <segue reference="g48-s2-9L2"/>
     </inferredMetricsTieBreakers>
 </document>

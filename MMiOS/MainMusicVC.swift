@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainMusicVC: UIViewController {
+class MainMusicVC: UIViewController{
 
     @IBOutlet weak var playingMusicName: UILabel!
     @IBOutlet weak var libraryLabel: UILabel!
@@ -18,7 +18,8 @@ class MainMusicVC: UIViewController {
     @IBOutlet weak var playlistsButton: UIButton!
     @IBOutlet weak var buttonToPlaying: UIButton!
     
-    @IBOutlet weak var musicTableView: UITableView!
+   
+    @IBOutlet weak var musicTV: UITableView!
     
     var backColor = ColorWeel()
     var controller = AudioController()
@@ -35,7 +36,6 @@ class MainMusicVC: UIViewController {
         
         //This is a default prop.
         playingMusicName.text = "Ain't No Rest For The Wicked"
-        
         
       
     }
@@ -86,5 +86,11 @@ class MainMusicVC: UIViewController {
             blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         }
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 0
+    }
+
     
 }
