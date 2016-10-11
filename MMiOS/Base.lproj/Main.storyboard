@@ -18,7 +18,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="deQ-Zf-iuo" kind="relationship" relationship="viewControllers" id="vfA-kB-wth"/>
+                        <segue destination="deQ-Zf-iuo" kind="relationship" relationship="viewControllers" id="xRz-nb-GsU"/>
                         <segue destination="F8D-Bk-4dT" kind="relationship" relationship="viewControllers" id="pef-qY-No4"/>
                         <segue destination="YHS-Ho-KwY" kind="relationship" relationship="viewControllers" id="IwL-sT-pyI"/>
                         <segue destination="Wyd-lq-rAw" kind="relationship" relationship="viewControllers" id="PTe-h1-WGm"/>
@@ -452,7 +452,7 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="214" id="ODi-34-efB"/>
                                         </constraints>
                                         <connections>
-                                            <segue destination="SHr-no-jf1" kind="presentation" id="pd3-e2-mj8"/>
+                                            <segue destination="SHr-no-jf1" kind="show" id="nXZ-11-z7k"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FoH-Ws-JXw" userLabel="Play">
@@ -510,7 +510,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="aBa-lf-ij0" secondAttribute="leading" constant="-8" id="K8F-aE-fmd"/>
                             <constraint firstItem="1EU-cn-wHP" firstAttribute="top" secondItem="6pR-Mk-dtK" secondAttribute="bottom" constant="-20" id="LDi-mr-u9z"/>
                             <constraint firstItem="L1o-bo-lPP" firstAttribute="leading" secondItem="rMz-Fn-bG4" secondAttribute="leadingMargin" constant="-21" id="NCc-YC-loA"/>
-                            <constraint firstItem="yYG-zK-N4s" firstAttribute="top" secondItem="L1o-bo-lPP" secondAttribute="bottom" constant="-49" id="O6L-8L-YHu"/>
+                            <constraint firstItem="yYG-zK-N4s" firstAttribute="top" secondItem="L1o-bo-lPP" secondAttribute="bottom" id="O6L-8L-YHu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="L1o-bo-lPP" secondAttribute="trailing" constant="-20" id="OaR-8J-bMU"/>
                             <constraint firstItem="u7f-jY-8xm" firstAttribute="top" secondItem="FIu-KV-MoU" secondAttribute="bottom" constant="8" id="Oz8-Ul-wzE"/>
                             <constraint firstItem="1EU-cn-wHP" firstAttribute="leading" secondItem="rMz-Fn-bG4" secondAttribute="leadingMargin" constant="-16" id="T6P-e0-puR"/>
@@ -572,7 +572,8 @@
                                         </constraints>
                                         <state key="normal" image="Back"/>
                                         <connections>
-                                            <segue destination="deQ-Zf-iuo" kind="presentation" id="Qzd-d3-K1q"/>
+                                            <action selector="backScreenAnimOff:" destination="SHr-no-jf1" eventType="touchUpInside" id="OMs-Kg-Rqo"/>
+                                            <segue destination="deQ-Zf-iuo" kind="presentation" id="g48-s2-9L2"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -727,6 +728,7 @@
                         <outlet property="albumName" destination="Amy-Id-3ZP" id="rlC-6q-AcM"/>
                         <outlet property="artistName" destination="4Ym-iJ-HRW" id="kg9-fM-0dT"/>
                         <outlet property="backButton" destination="7Z7-Zb-CX5" id="56l-kh-vOx"/>
+                        <outlet property="backScreen" destination="0T8-Wz-1XL" id="dyf-iY-0fW"/>
                         <outlet property="musicName" destination="6bH-Qw-8x3" id="N7B-Lp-1di"/>
                         <outlet property="nextButtom" destination="lsb-gc-e7R" id="EfK-Js-EqP"/>
                         <outlet property="playButton" destination="oT0-Ik-2q3" id="tsA-tI-J9D"/>
@@ -750,6 +752,6 @@
         <image name="trabalhar-na-UnB" width="315" height="315"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Qzd-d3-K1q"/>
+        <segue reference="g48-s2-9L2"/>
     </inferredMetricsTieBreakers>
 </document>

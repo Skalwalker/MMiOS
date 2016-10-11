@@ -19,9 +19,10 @@ class PlayingMusicVC: UIViewController {
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var nextButtom: UIButton!
-   
-    let backColor = ColorWeel()
+    @IBOutlet weak var backScreen: UIButton!
     
+    let backColor = ColorWeel()
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,6 +93,12 @@ class PlayingMusicVC: UIViewController {
             musicName.font = musicName.font.withSize(30)
         }
         
+        
+        
+    }
+    
+    @IBAction func backScreenAnimOff(_ sender: AnyObject) {
+        dismiss(animated: false, completion: nil)
         
     }
 }
