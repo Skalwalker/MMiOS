@@ -20,6 +20,7 @@ class AboutMeVC: UIViewController {
         super.viewDidLoad()
 
         setColor()
+        setFontSize()
         
         // Do any additional setup after loading the view.
     }
@@ -44,6 +45,23 @@ class AboutMeVC: UIViewController {
         aboutMeLabel.textColor = UIColor.white
     }
     
+    func setFontSize(){
+        let textViews = [textBoxOne, textBoxTwo, textBoxThree]
+        
+        for textView in textViews{
+            if UIScreen.main.bounds.size.height == 568 {
+                // IPhone 5
+                textView?.font = textView?.font?.withSize(14)
+            } else if UIScreen.main.bounds.size.width == 375 {
+                // iPhone 6
+                textView?.font = textView?.font?.withSize(17)
+            } else if UIScreen.main.bounds.size.width == 414 {
+                // iPhone 6+
+                textView?.font = textView?.font?.withSize(17)
+            }
+        }
+        
+    }
     
     /*
     // MARK: - Navigation
