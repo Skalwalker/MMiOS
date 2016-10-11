@@ -99,6 +99,5 @@ class PlayingMusicVC: UIViewController {
     
     @IBAction func backScreenAnimOff(_ sender: AnyObject) {
         dismiss(animated: false, completion: nil)
-        
     }
 }

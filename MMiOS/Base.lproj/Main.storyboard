@@ -18,7 +18,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="deQ-Zf-iuo" kind="relationship" relationship="viewControllers" id="xRz-nb-GsU"/>
+                        <segue destination="deQ-Zf-iuo" kind="relationship" relationship="viewControllers" id="7Ed-Jh-wpJ"/>
                         <segue destination="F8D-Bk-4dT" kind="relationship" relationship="viewControllers" id="pef-qY-No4"/>
                         <segue destination="YHS-Ho-KwY" kind="relationship" relationship="viewControllers" id="IwL-sT-pyI"/>
                         <segue destination="Wyd-lq-rAw" kind="relationship" relationship="viewControllers" id="PTe-h1-WGm"/>
@@ -533,13 +533,7 @@
                             <constraint firstItem="L1o-bo-lPP" firstAttribute="top" secondItem="aBa-lf-ij0" secondAttribute="bottom" constant="20" id="tRJ-Sa-KNL"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Musics" image="Music" selectedImage="Music" id="vuH-k9-IdY" userLabel="Musics Item">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="selectedImageTint">
-                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Musics" image="Music" selectedImage="Music" id="vuH-k9-IdY" userLabel="Musics Item"/>
                     <connections>
                         <outlet property="albunsButton" destination="u7f-jY-8xm" id="rKW-uD-US2"/>
                         <outlet property="artistsButton" destination="FIu-KV-MoU" id="9Z4-Ol-jaI"/>
@@ -583,7 +577,6 @@
                                         <state key="normal" image="Back"/>
                                         <connections>
                                             <action selector="backScreenAnimOff:" destination="SHr-no-jf1" eventType="touchUpInside" id="OMs-Kg-Rqo"/>
-                                            <segue destination="deQ-Zf-iuo" kind="presentation" id="g48-s2-9L2"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -697,6 +690,7 @@
                                 </variation>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="cAG-w3-G0W">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="JR2-gj-KOA"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="UZp-cW-7YC"/>
@@ -762,7 +756,4 @@
         <image name="mzi.zdsarhql.600x600-75" width="600" height="600"/>
         <image name="trabalhar-na-UnB" width="315" height="315"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="g48-s2-9L2"/>
-    </inferredMetricsTieBreakers>
 </document>
