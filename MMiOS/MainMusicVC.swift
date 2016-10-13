@@ -23,6 +23,7 @@ class MainMusicVC: UIViewController{
     
     var backColor = ColorWeel()
     var controller = AudioController()
+    var musics = MusicsModel()
     
     @IBOutlet weak var bottomView: UIView!
     
@@ -46,6 +47,7 @@ class MainMusicVC: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         view.backgroundColor = backColor.randomColor()
+        musics.printQuerry()
         hideBottomView()
       
     }
