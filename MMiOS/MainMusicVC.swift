@@ -18,7 +18,6 @@ class MainMusicVC: UIViewController{
     @IBOutlet weak var playlistsButton: UIButton!
     @IBOutlet weak var buttonToPlaying: UIButton!
     
-   
     @IBOutlet weak var musicTV: UITableView!
     
     var backColor = ColorWeel()
