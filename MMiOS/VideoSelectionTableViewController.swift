@@ -7,18 +7,40 @@
 //
 
 import UIKit
+import Photos
+import AVKit
 
 class VideoSelectionTableViewController: UITableViewController {
 
-    
+    var videos: PHFetchResult<PHAsset>!
     @IBOutlet weak var videosLibrary: UILabel!
     var backgroundColor = ColorWeel()
-    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        let options = PHFetchOptions()
+        options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
+        videos = PHAsset.fetchAssets(with: .video, options: options) as PHFetchResult
         
-        videosLibrary.textColor = UIColor.white
+        if((videos.firstObject) != nil) {
+            PHImageManager.default().requestAVAsset(forVideo: videos.firstObject!, options: nil, resultHandler: { avAsset, audioMix, info in
+                DispatchQueue.main.sync {
+                    let myplayerItem = AVPlayerItem.init(asset: avAsset!)
+                    let player = AVPlayer.init(playerItem: myplayerItem)
+                    let playerViewController = AVPlayerViewController()
+                    playerViewController.player = player
+                    self.present(playerViewController, animated: true, completion: {
+                        playerViewController.player?.play()
+                    })
+                }
+            })
 
+        }
+        
+        
+
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -45,18 +67,16 @@ class VideoSelectionTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! VideoTableViewCell
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

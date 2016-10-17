@@ -34,6 +34,8 @@
 	</array>
 	<key>UIRequiresFullScreen</key>
 	<false/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To see the nudes</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
