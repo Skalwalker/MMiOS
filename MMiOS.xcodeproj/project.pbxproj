@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3DE69E7A1D9CAB3500A590E5 /* VideoSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE69E791D9CAB3500A590E5 /* VideoSelectionTableViewController.swift */; };
 		3DE69E7C1D9CB1C600A590E5 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE69E7B1D9CB1C600A590E5 /* VideoTableViewCell.swift */; };
+		3DF8B1B51DB1581300A54D70 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF8B1B41DB1581300A54D70 /* VideoModel.swift */; };
 		880703671D9ED4330056208E /* ColorWeel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880703661D9ED4330056208E /* ColorWeel.swift */; };
 		880703721D9EE8850056208E /* AboutMeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880703711D9EE8850056208E /* AboutMeVC.swift */; };
 		880703751D9EE9320056208E /* ConfigVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880703741D9EE9320056208E /* ConfigVC.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		3DE69E791D9CAB3500A590E5 /* VideoSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSelectionTableViewController.swift; sourceTree = "<group>"; };
 		3DE69E7B1D9CB1C600A590E5 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
+		3DF8B1B41DB1581300A54D70 /* VideoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
 		880703661D9ED4330056208E /* ColorWeel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorWeel.swift; sourceTree = "<group>"; };
 		880703711D9EE8850056208E /* AboutMeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutMeVC.swift; sourceTree = "<group>"; };
 		880703741D9EE9320056208E /* ConfigVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigVC.swift; sourceTree = "<group>"; };
@@ -94,6 +96,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DF8B1B11DB1537400A54D70 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3DF8B1B41DB1581300A54D70 /* VideoModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3DF8B1B21DB1537C00A54D70 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3DE69E791D9CAB3500A590E5 /* VideoSelectionTableViewController.swift */,
+				3DE69E7B1D9CB1C600A590E5 /* VideoTableViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		3DF8B1B31DB1538600A54D70 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		880703681D9ED5A70056208E /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,8 +220,9 @@
 		884A219C1D7B93860017EB42 /* Video */ = {
 			isa = PBXGroup;
 			children = (
-				3DE69E791D9CAB3500A590E5 /* VideoSelectionTableViewController.swift */,
-				3DE69E7B1D9CB1C600A590E5 /* VideoTableViewCell.swift */,
+				3DF8B1B31DB1538600A54D70 /* Controller */,
+				3DF8B1B21DB1537C00A54D70 /* View */,
+				3DF8B1B11DB1537400A54D70 /* Model */,
 			);
 			name = Video;
 			sourceTree = "<group>";
@@ -361,6 +388,7 @@
 				3DE69E7A1D9CAB3500A590E5 /* VideoSelectionTableViewController.swift in Sources */,
 				880703751D9EE9320056208E /* ConfigVC.swift in Sources */,
 				884A21741D7B93620017EB42 /* MMiOS.xcdatamodeld in Sources */,
+				3DF8B1B51DB1581300A54D70 /* VideoModel.swift in Sources */,
 				880703671D9ED4330056208E /* ColorWeel.swift in Sources */,
 				881E93251DAEF1EA003BF71C /* MusicsModel.swift in Sources */,
 				885F581E1DABFF2F004C619E /* MusicTableViewController.swift in Sources */,

@@ -8,22 +8,38 @@
 
 import UIKit
 import Photos
+import AVKit
 
 class VideoSelectionTableViewController: UITableViewController {
 
-    
+    var videos: PHFetchResult<PHAsset>!
     @IBOutlet weak var videosLibrary: UILabel!
     var backgroundColor = ColorWeel()
-    var videos: PHFetchResult<PHAsset>!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let options = PHFetchOptions()
         options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
-        videos = PHAsset.fetchAssets(with: .video, options: options)
-        let count  = videos.count
-        print("lala")
+        videos = PHAsset.fetchAssets(with: .video, options: options) as PHFetchResult
+        
+        if((videos.firstObject) != nil) {
+            PHImageManager.default().requestAVAsset(forVideo: videos.firstObject!, options: nil, resultHandler: { avAsset, audioMix, info in
+                DispatchQueue.main.sync {
+                    let myplayerItem = AVPlayerItem.init(asset: avAsset!)
+                    let player = AVPlayer.init(playerItem: myplayerItem)
+                    let playerViewController = AVPlayerViewController()
+                    playerViewController.player = player
+                    self.present(playerViewController, animated: true, completion: {
+                        playerViewController.player?.play()
+                    })
+                }
+            })
+
+        }
+        
+        
+
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -56,8 +72,8 @@ class VideoSelectionTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! VideoTableViewCell
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! VideoTableViewCell
+        
         return cell
     }
     
