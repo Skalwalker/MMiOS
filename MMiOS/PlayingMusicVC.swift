@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlayingMusicVC: UIViewController {
+class PlayingMusicVC: UIViewController{
 
     @IBOutlet weak var musicName: UILabel!
     @IBOutlet weak var albumName: UILabel!
@@ -22,7 +22,6 @@ class PlayingMusicVC: UIViewController {
     @IBOutlet weak var backScreen: UIButton!
     
     let backColor = ColorWeel()
-   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,4 +99,6 @@ class PlayingMusicVC: UIViewController {
     @IBAction func backScreenAnimOff(_ sender: AnyObject) {
         dismiss(animated: false, completion: nil)
     }
+    
+ 
 }

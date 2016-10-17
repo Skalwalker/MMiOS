@@ -27,6 +27,10 @@ class MusicsModel{
         return songsQuery
     }
     
+    func getSongQueryCount() -> Int{
+        return (songsQuery.items?.count)!
+    }
+    
     func getArtistQuery() -> MPMediaQuery{
         return artistsQuery
     }

@@ -88,10 +88,31 @@ class MainMusicVC: UIViewController{
         }
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return musics.getSongQueryCount()
+//    }
+//
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Cell
+//        let item = items[indexPath.row]
+//        let size = CGSize.init(width: 52.0, height: 52.0)
+//        // Configure the cell...
+//        cell.musicsLabel.text = item.title
+//            
+//        cell.albumImage.image = item.artwork?.image(at: size)
+//        cell.artistsLabel.text = item.artist
+//        
+//        return cell
+//    }
+//    
+//    func loadMusics(){
+//        var musicsArray: Array<Cell>
+//      
+//    }
 }
