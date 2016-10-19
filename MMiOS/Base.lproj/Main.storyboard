@@ -19,7 +19,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="deQ-Zf-iuo" kind="relationship" relationship="viewControllers" id="7Ed-Jh-wpJ"/>
-                        <segue destination="F8D-Bk-4dT" kind="relationship" relationship="viewControllers" id="pef-qY-No4"/>
                         <segue destination="YHS-Ho-KwY" kind="relationship" relationship="viewControllers" id="IwL-sT-pyI"/>
                         <segue destination="Wyd-lq-rAw" kind="relationship" relationship="viewControllers" id="PTe-h1-WGm"/>
                     </connections>
@@ -572,6 +571,59 @@
             </objects>
             <point key="canvasLocation" x="471.19999999999999" y="222.63868065967017"/>
         </scene>
+        <!--VideosController-->
+        <scene sceneID="df7-qy-uyF">
+            <objects>
+                <tableViewController title="VideosController" id="8OB-MF-cAg" customClass="VideoSelectionTableViewController" customModule="MMiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="84" sectionHeaderHeight="28" sectionFooterHeight="28" id="lCl-j3-FeX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="84" id="Ebv-74-jch" customClass="VideoTableViewCell" customModule="MMiOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="84"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ebv-74-jch" id="2YS-lY-uRt">
+                                    <frame key="frameInset" width="375" height="83"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RCm-Pp-XJx">
+                                            <frame key="frameInset" minX="8" minY="8" width="79" height="67"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgj-Fj-dbi">
+                                            <frame key="frameInset" minX="95" minY="8" width="34" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cg4-ED-C1X">
+                                            <frame key="frameInset" minX="95" minY="37" width="45" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="videoDuration" destination="cg4-ED-C1X" id="jQA-bD-VuL"/>
+                                    <outlet property="videoTitle" destination="fgj-Fj-dbi" id="tM4-6X-1bc"/>
+                                    <outlet property="videosThumbnail" destination="RCm-Pp-XJx" id="Mlx-xQ-o3g"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8OB-MF-cAg" id="1Ut-xl-4To"/>
+                            <outlet property="delegate" destination="8OB-MF-cAg" id="YXL-Ae-lQL"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CRP-OP-sVE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="272.80000000000001" y="1067.3163418290856"/>
+        </scene>
         <!--MusicPlaying-->
         <scene sceneID="x3y-HK-9rE">
             <objects>
@@ -773,7 +825,6 @@
         <image name="Music" width="25" height="25"/>
         <image name="Play" width="100" height="100"/>
         <image name="Settings" width="25" height="25"/>
-        <image name="Video" width="25" height="25"/>
         <image name="github-512" width="512" height="512"/>
         <image name="mzi.zdsarhql.600x600-75" width="600" height="600"/>
         <image name="trabalhar-na-UnB" width="315" height="315"/>
