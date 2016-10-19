@@ -23,6 +23,7 @@ class MainMusicVC: UIViewController{
     var backColor = ColorWeel()
     var controller = AudioController()
     var musics = MusicsModel()
+    var music = [Music]()
     
     @IBOutlet weak var bottomView: UIView!
     
@@ -48,6 +49,7 @@ class MainMusicVC: UIViewController{
         view.backgroundColor = backColor.randomColor()
         musics.printQuerry()
         hideBottomView()
+        loadMusics()
       
     }
 
@@ -100,19 +102,24 @@ class MainMusicVC: UIViewController{
 //    
 //    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Cell
-//        let item = items[indexPath.row]
-//        let size = CGSize.init(width: 52.0, height: 52.0)
+//        let musicCell = self.music[indexPath.row]
+//   
 //        // Configure the cell...
-//        cell.musicsLabel.text = item.title
-//            
-//        cell.albumImage.image = item.artwork?.image(at: size)
-//        cell.artistsLabel.text = item.artist
+//        cell.musicsLabel.text = musicCell.getTitulo()
+//        cell.albumImage.image = musicCell.getAlbum()
+//        cell.artistsLabel.text = musicCell.getArtist()
 //        
 //        return cell
 //    }
 //    
 //    func loadMusics(){
-//        var musicsArray: Array<Cell>
-//      
+//        
+//        let size = CGSize.init(width: 52.0, height: 52.0)
+//
+//        
+//        for item in musics.getSongsQuery().items!{
+//            let music = Music.init(titulo: item.title!, album: (item.artwork?.image(at: size))!, artista: item.artist!)
+//            self.music += [music]
+//        }
 //    }
 }
