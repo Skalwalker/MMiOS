@@ -17,6 +17,10 @@ class Cell: UITableViewCell{
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.backgroundColor = UIColor.clear
+        musicsLabel.textColor = UIColor.white
+        artistsLabel.textColor = UIColor.white
+        
         // Initialization code
     }
     
