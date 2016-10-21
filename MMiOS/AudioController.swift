@@ -55,7 +55,7 @@ class AudioController{
         MusicPlayer.shuffleMode = .songs
     }
     
-    func itemNowPlaying() -> MPMediaItem{
+    func itemNowPlaying() -> MPMediaItem?{
         return MusicPlayer.nowPlayingItem
     }
     
