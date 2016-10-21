@@ -21,7 +21,7 @@ class PlayingMusicVC: UIViewController{
     @IBOutlet weak var nextButtom: UIButton!
     @IBOutlet weak var backScreen: UIButton!
     
-    let backColor = ColorWeel()
+    let backColor = ColorWeel()	
     
     override func viewDidLoad() {
         super.viewDidLoad()

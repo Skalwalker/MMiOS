@@ -7,21 +7,58 @@
 //
 
 import Foundation
+import MediaPlayer
 
 class AudioController{
     
     
-    private var playing = true
+    let MusicPlayer = MPMusicPlayerController()
+    
+    private var playing = false
 
     
     func setPlaying(){
-        self.playing = !self.playing
+        playing = true
         print(self.playing)
     }
     
-    func getPlaying() -> Bool{
-        return self.playing
+    func pausePlaying(){
+        playing = false
+        MusicPlayer.pause()
     }
+    
+    func playWithQueue(musics :MPMediaQuery){
+        self.setPlaying()
+        MusicPlayer.setQueue(with: musics)
+        MusicPlayer.play()
+    }
+    
+    func playWithPlayList(musics : MPMediaItemCollection) {
+        self.setPlaying()
+        MusicPlayer.setQueue(with: musics)
+        MusicPlayer.play()
+    }
+    
+    func skipMusic(){
+        MusicPlayer.skipToNextItem()
+    }
+    
+    func returnMusic(){
+        MusicPlayer.skipToPreviousItem()
+    }
+    
+    func getPlaying() -> Bool{
+        return MusicPlayer.playbackState == .playing
+    }
+    
+    func shuffleMode(){
+        MusicPlayer.shuffleMode = .songs
+    }
+    
+    func itemNowPlaying() -> MPMediaItem{
+        return MusicPlayer.nowPlayingItem
+    }
+    
     
     
 }
