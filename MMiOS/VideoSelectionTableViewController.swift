@@ -12,6 +12,8 @@ import AVKit
 
 class VideoSelectionTableViewController: UITableViewController {
 
+//    var videoController = VideoController()
+    var videoModel = VideoModel()
     var videos: PHFetchResult<PHAsset>!
     @IBOutlet weak var videosLibrary: UILabel!
     var backgroundColor = ColorWeel()
@@ -19,26 +21,8 @@ class VideoSelectionTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let options = PHFetchOptions()
-        options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
-        videos = PHAsset.fetchAssets(with: .video, options: options) as PHFetchResult
-        
-        if((videos.firstObject) != nil) {
-            PHImageManager.default().requestAVAsset(forVideo: videos.firstObject!, options: nil, resultHandler: { avAsset, audioMix, info in
-                DispatchQueue.main.sync {
-                    let myplayerItem = AVPlayerItem.init(asset: avAsset!)
-                    let player = AVPlayer.init(playerItem: myplayerItem)
-                    let playerViewController = AVPlayerViewController()
-                    playerViewController.player = player
-                    self.present(playerViewController, animated: true, completion: {
-                        playerViewController.player?.play()
-                    })
-                }
-            })
+        tableView.contentInset.top = 20
 
-        }
-        
-        
 
         
         // Uncomment the following line to preserve selection between presentations
@@ -62,19 +46,55 @@ class VideoSelectionTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return videoModel.getVideoAssets().count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! VideoTableViewCell
+        let cell: VideoTableViewCell = tableView.dequeueReusableCell(withIdentifier: "videoCell", for: indexPath) as! VideoTableViewCell
+        
+        //Thumbnail image
+        let image = videoModel.getThumbnails()[indexPath.row]
+        cell.videosThumbnail.image = image
+        
+        //Title label
+        let creationdate = videoModel.getVideoAssets()[indexPath.row].creationDate?.dateValue
+        let creationFormater = DateFormatter()
+        creationFormater.dateFormat = "dd'/'MM'/'yyyy'-'HH':'mm':'ss"
+        let creationString = creationFormater.string(from: creationdate!)
+        cell.videoTitle.text = creationString
+        
+        //Duration label
+        let durationInSeconds = ceil(videoModel.getVideoAssets()[indexPath.row].duration.seconds)
+        cell.videoDuration.text = stringFromTimeInterval(interval: durationInSeconds)
         
         return cell
+    }
+    
+    func stringFromTimeInterval(interval: Double) -> String {
+        let interval = Int(interval)
+        let seconds = interval % 60
+        let minutes = (interval / 60) % 60
+        let hours = (interval / 3600)
+        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let avAsset = videoModel.getVideoAssets()[indexPath.row]
+        let myplayerItem = AVPlayerItem.init(asset: avAsset)
+        let player = AVPlayer.init(playerItem: myplayerItem)
+        let playerViewController = AVPlayerViewController()
+        
+        playerViewController.player = player
+        self.present(playerViewController, animated: true, completion: {
+            playerViewController.player?.play()
+        })
     }
     
 
