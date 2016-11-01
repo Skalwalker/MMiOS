@@ -27,6 +27,10 @@ class MusicsModel{
         return songsQuery
     }
     
+    func getSong() -> MPMediaItem{
+        return (songsQuery.items?.first)!
+    }
+    
     func getSongQueryCount() -> Int{
         return (songsQuery.items?.count)!
     }
@@ -41,28 +45,5 @@ class MusicsModel{
     
     func getPlayListQuery() -> MPMediaQuery{
         return playlistsQuery
-    }
-    
-    func printQuerry(){
-        for item in songsQuery.items!{
-            print(item.title)
-        }
-    }
-    
-}
-
-class MusicsCell: UITableViewCell {
-    
- 
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
 }

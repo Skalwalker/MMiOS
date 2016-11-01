@@ -12,6 +12,10 @@ class ConfigVC: UIViewController {
 
     var backColor = ColorWeel()
    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return UIInterfaceOrientationMask.portrait
+    }
+    
     @IBOutlet weak var settingsLabel: UILabel!
     
     override func viewDidLoad() {

@@ -13,25 +13,31 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
     @IBOutlet weak var playingMusicName: UILabel!
     @IBOutlet weak var libraryLabel: UILabel!
     @IBOutlet weak var albunsButton: UIButton!
+    @IBOutlet weak var playingImageView: UIImageView!
    
+    @IBOutlet weak var playOrPause: UIButton!
     @IBOutlet weak var artistsButton: UIButton!
     @IBOutlet weak var playlistsButton: UIButton!
     @IBOutlet weak var buttonToPlaying: UIButton!
     
     @IBOutlet weak var tableView: UITableView!
-
-    
     @IBOutlet weak var bottomView: UIView!
-    
     
     var backColor = ColorWeel()
     var controller = AudioController()
     var musics = MusicsModel()
     
+
+//    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+//        return UIInterfaceOrientationMask.portrait
+//    }
+//    
+//    override var shouldAutorotate: Bool{
+//        return false
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         self.tableView?.delegate = self
         self.tableView?.dataSource = self
@@ -53,17 +59,16 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
     override func viewWillAppear(_ animated: Bool) {
         view.backgroundColor = backColor.randomColor()
         hideBottomView()
-      
     }
 
     func hideBottomView(){
         print(controller.getPlaying())
         if(controller.getPlaying() == false){
-            bottomView.isHidden = true
-            buttonToPlaying.isEnabled = false
+            self.bottomView.isHidden = true
+            self.buttonToPlaying.isEnabled = false
         } else {
-            bottomView.isHidden = false
-            buttonToPlaying.isEnabled = true
+            self.bottomView.isHidden = false
+            self.buttonToPlaying.isEnabled = true
         }
     }
     
@@ -97,7 +102,6 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print(musics.getSongQueryCount())
         return musics.getSongQueryCount()
     }
 
@@ -114,12 +118,63 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
         cell.musicsLabel.text = self.musics.getSongsQuery().items?[indexPath.row].title
         cell.albumImage.image = self.musics.getSongsQuery().items?[indexPath.row].artwork?.image(at: size)
         cell.artistsLabel.text = self.musics.getSongsQuery().items?[indexPath.row].artist
-        
-        
-        print(cell.musicsLabel.text)
-        print(cell.albumImage.image)
-        print(cell.artistsLabel.text)
+        cell.albumName = (self.musics.getAlbumQuery().items?[indexPath.row].albumArtist)!
         
         return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = self.tableView.cellForRow(at: indexPath) as! Cell
+        
+        
+        controller.playWithQueue(musics: musics.getSongsQuery(), musicsLabel: cell.musicsLabel.text!)
+        
+        playingMusicName.text = cell.musicsLabel.text
+        playingImageView.image = cell.albumImage.image
+        
+        hideBottomView()
+    }
+
+    
+    @IBAction func playOrPause(_ sender: AnyObject) {
+        if(controller.getPlaying()){
+            controller.pausePlaying()
+            playOrPause.setImage(#imageLiteral(resourceName: "Play"), for: .normal)
+        } else {
+            controller.play()
+            playOrPause.setImage(#imageLiteral(resourceName: "Pause"), for: .normal)
+
+        }
+        
+    }
+    
+    @IBAction func nextMusic(_ sender: AnyObject) {
+        controller.skipMusic()
+        let music = controller.itemNowPlaying()
+        let size = CGSize.init(width: 52.0, height: 52.0)
+        
+        playingMusicName.text = music?.title
+        playingImageView.image = music?.artwork?.image(at: size)
+        
+    }
+    
+    @IBAction func triggerSegue(_ sender: AnyObject) {
+        performSegue(withIdentifier: "PlayingMusic", sender: sender)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let music = controller.itemNowPlaying()
+        
+        if(segue.identifier == "PlayingMusic"){
+            let vc = segue.destination as! PlayingMusicVC
+            let size = CGSize.init(width: 240.0, height: 240.0)
+            
+            vc.passedArtistName = (music?.albumArtist)!
+            vc.passedAlbumName = (music?.albumTitle)!
+            vc.passedMusicName = (music?.title)!
+            vc.passedImage = (music?.artwork?.image(at: size))!
+        }
     }
 }

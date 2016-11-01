@@ -8,26 +8,34 @@
 
 import Foundation
 import UIKit
+import MediaPlayer
+
 
 class Cell: UITableViewCell{
+    
     
     @IBOutlet weak var musicsLabel: UILabel!
     @IBOutlet weak var albumImage: UIImageView!
     @IBOutlet weak var artistsLabel: UILabel!
+    var albumName: String = "Default"
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = UIColor.clear
         musicsLabel.textColor = UIColor.white
         artistsLabel.textColor = UIColor.white
-        
         // Initialization code
     }
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
     }
-    
+   
 }
+//
+//protocol HideBottomView: class {
+//    func hideBottomView()
+//}

@@ -218,6 +218,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="bRD-yh-hzK"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="295" id="ynH-eD-k7R"/>
                                 </constraints>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MusicCell" rowHeight="59" id="gO7-ha-z2P" customClass="Cell" customModule="MMiOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="384" height="59"/>
@@ -235,7 +236,7 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Musica" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIr-ky-42A">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="308" id="Gy5-Ew-DkI"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="253" id="Gy5-Ew-DkI"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -243,9 +244,9 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artista" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1O-wQ-PRB">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="308" id="4aO-Dc-Djo"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="253" id="4aO-Dc-Djo"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -259,9 +260,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="rIr-ky-42A" secondAttribute="trailing" id="S04-lD-BVK"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Y1O-wQ-PRB" secondAttribute="trailing" id="W8B-Bj-nh2"/>
                                                 <constraint firstAttribute="topMargin" secondItem="rIr-ky-42A" secondAttribute="top" id="bga-5V-wjo"/>
-                                                <constraint firstItem="Y1O-wQ-PRB" firstAttribute="top" secondItem="rIr-ky-42A" secondAttribute="bottom" constant="3.5" id="u9G-O8-AMI"/>
-                                                <constraint firstItem="Y1O-wQ-PRB" firstAttribute="leading" secondItem="eEZ-rk-vwx" secondAttribute="trailing" constant="8" id="uUj-Gq-vby"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Y1O-wQ-PRB" secondAttribute="bottom" id="udD-fo-MGd"/>
+                                                <constraint firstItem="Y1O-wQ-PRB" firstAttribute="baseline" secondItem="rIr-ky-42A" secondAttribute="baseline" constant="20.5" id="kQO-5t-b6j"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -300,7 +299,7 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="214" id="ODi-34-efB"/>
                                         </constraints>
                                         <connections>
-                                            <segue destination="SHr-no-jf1" kind="show" id="nXZ-11-z7k"/>
+                                            <action selector="triggerSegue:" destination="deQ-Zf-iuo" eventType="touchUpInside" id="f8p-dU-QOF"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FoH-Ws-JXw" userLabel="Play">
@@ -309,6 +308,9 @@
                                             <constraint firstAttribute="width" constant="25" id="HKU-qL-QTq"/>
                                         </constraints>
                                         <state key="normal" image="Play"/>
+                                        <connections>
+                                            <action selector="playOrPause:" destination="deQ-Zf-iuo" eventType="touchUpInside" id="3y7-ZH-BFu"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRn-3N-b5d" userLabel="FastFoward">
                                         <constraints>
@@ -316,6 +318,9 @@
                                             <constraint firstAttribute="width" constant="25" id="d6l-Vp-J5K"/>
                                         </constraints>
                                         <state key="normal" image="FastFoward"/>
+                                        <connections>
+                                            <action selector="nextMusic:" destination="deQ-Zf-iuo" eventType="touchUpInside" id="ATz-Oy-3WF"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.24738666373239437" colorSpace="calibratedWhite"/>
@@ -378,15 +383,18 @@
                         <outlet property="bottomView" destination="bPR-Im-fQr" id="I3R-TB-2ux"/>
                         <outlet property="buttonToPlaying" destination="Zbf-sA-5gm" id="RSj-x5-ZO0"/>
                         <outlet property="libraryLabel" destination="CTG-wK-7wg" id="BRN-VK-Ww1"/>
+                        <outlet property="playOrPause" destination="FoH-Ws-JXw" id="63M-KW-ce4"/>
+                        <outlet property="playingImageView" destination="WEe-NN-31p" id="aqM-ed-4E2"/>
                         <outlet property="playingMusicName" destination="oy6-QU-ybc" id="NqJ-Mf-RDF"/>
                         <outlet property="playlistsButton" destination="aBa-lf-ij0" id="BSY-qm-S0x"/>
                         <outlet property="tabBarItem" destination="vuH-k9-IdY" id="B5S-R1-IzW"/>
                         <outlet property="tableView" destination="L1o-bo-lPP" id="f3E-sv-xQe"/>
+                        <segue destination="SHr-no-jf1" kind="show" identifier="PlayingMusic" id="aQ5-Al-IDI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lRd-8u-JPX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="471.19999999999999" y="222.63868065967017"/>
+            <point key="canvasLocation" x="470.625" y="221.83098591549296"/>
         </scene>
         <!--VideosController-->
         <scene sceneID="df7-qy-uyF">
@@ -494,6 +502,9 @@
                                     <constraint firstAttribute="width" constant="75" id="qqw-hR-Kdu"/>
                                 </constraints>
                                 <state key="normal" image="Play"/>
+                                <connections>
+                                    <action selector="playMusic:" destination="SHr-no-jf1" eventType="touchUpInside" id="djw-mA-8FR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Z7-Zb-CX5">
                                 <constraints>
@@ -501,6 +512,9 @@
                                     <constraint firstAttribute="height" constant="60" id="nl9-cm-zSs"/>
                                 </constraints>
                                 <state key="normal" image="FastBackwards"/>
+                                <connections>
+                                    <action selector="lastMusic:" destination="SHr-no-jf1" eventType="touchUpInside" id="Pid-Fa-2I0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsb-gc-e7R">
                                 <constraints>
@@ -508,6 +522,9 @@
                                     <constraint firstAttribute="width" constant="60" id="z2T-2E-Yrr"/>
                                 </constraints>
                                 <state key="normal" image="FastFoward"/>
+                                <connections>
+                                    <action selector="nextMusic:" destination="SHr-no-jf1" eventType="touchUpInside" id="reH-qu-Z9D"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bH-Qw-8x3">
                                 <constraints>
@@ -516,7 +533,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="drq-KK-ioN"/>
                                     <constraint firstAttribute="height" constant="24" id="ic5-nV-fVP"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -539,7 +556,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="ute-SK-EOf"/>
                                     <constraint firstAttribute="height" constant="21" id="xRj-qa-0CF"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -564,7 +581,7 @@
                                     <constraint firstAttribute="height" constant="21" id="srk-7m-pMc"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="yvi-wK-UzR"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -587,6 +604,9 @@
                                     <constraint firstAttribute="height" constant="30" id="JR2-gj-KOA"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="UZp-cW-7YC"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="changeVolume:" destination="SHr-no-jf1" eventType="valueChanged" id="NwO-Tu-OF3"/>
+                                </connections>
                             </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -621,6 +641,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="Volume" destination="cAG-w3-G0W" id="4UJ-YQ-ZTN"/>
+                        <outlet property="albumImage" destination="Ysm-ly-eqm" id="On1-pQ-0k5"/>
                         <outlet property="albumName" destination="Amy-Id-3ZP" id="rlC-6q-AcM"/>
                         <outlet property="artistName" destination="4Ym-iJ-HRW" id="kg9-fM-0dT"/>
                         <outlet property="backButton" destination="7Z7-Zb-CX5" id="56l-kh-vOx"/>
