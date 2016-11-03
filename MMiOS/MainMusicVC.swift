@@ -49,6 +49,9 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
         //This is a default prop.
         playingMusicName.text = "Ain't No Rest For The Wicked"
         
+        playingImageView.layer.cornerRadius = 10.0
+        playingImageView.clipsToBounds = true
+        
         self.tableView.reloadData()
     }
 
@@ -59,6 +62,7 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
     override func viewWillAppear(_ animated: Bool) {
         view.backgroundColor = backColor.randomColor()
         hideBottomView()
+        self.tableView.reloadData()
     }
 
     func hideBottomView(){

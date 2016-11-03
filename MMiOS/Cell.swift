@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import MediaPlayer
+import QuartzCore
 
 
 class Cell: UITableViewCell{
@@ -25,8 +25,9 @@ class Cell: UITableViewCell{
         self.backgroundColor = UIColor.clear
         musicsLabel.textColor = UIColor.white
         artistsLabel.textColor = UIColor.white
-        // Initialization code
-    }
+        albumImage.layer.cornerRadius = 10.0
+        albumImage.clipsToBounds = true
+}
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

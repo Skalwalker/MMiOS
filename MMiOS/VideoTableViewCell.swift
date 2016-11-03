@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class VideoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var videoDuration: UILabel!
@@ -23,6 +24,4 @@ class VideoTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-
 }

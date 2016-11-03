@@ -21,7 +21,7 @@ class VideoModel{
     
     init() {
         self.phFetch()
-            }
+    }
     /*
      * Pega asincronamente as thumbnails
      */
@@ -68,6 +68,8 @@ class VideoModel{
         } catch {
             print("Unknown error")
         }
+        
+        
         return retirnedImage
     }
     

@@ -57,21 +57,27 @@ class VideoSelectionTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: VideoTableViewCell = tableView.dequeueReusableCell(withIdentifier: "videoCell", for: indexPath) as! VideoTableViewCell
-        
+
         //Thumbnail image
         let image = videoModel.getThumbnails()[indexPath.row]
         cell.videosThumbnail.image = image
         
         //Title label
         let creationdate = videoModel.getVideoAssets()[indexPath.row].creationDate?.dateValue
-        let creationFormater = DateFormatter()
-        creationFormater.dateFormat = "dd'/'MM'/'yyyy'-'HH':'mm':'ss"
-        let creationString = creationFormater.string(from: creationdate!)
-        cell.videoTitle.text = creationString
-        
+        if creationdate == nil{
+           print("ayy")
+            cell.videoTitle.text = "This is default."
+        } else {
+            let creationFormater = DateFormatter()
+            creationFormater.dateFormat = "dd'/'MM'/'yyyy'-'HH':'mm':'ss"
+            let creationString = creationFormater.string(from: creationdate!)
+            cell.videoTitle.text = creationString
+        }
+    
         //Duration label
         let durationInSeconds = ceil(videoModel.getVideoAssets()[indexPath.row].duration.seconds)
         cell.videoDuration.text = stringFromTimeInterval(interval: durationInSeconds)
+        
         
         return cell
     }
