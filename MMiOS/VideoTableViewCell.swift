@@ -16,6 +16,8 @@ class VideoTableViewCell: UITableViewCell {
     @IBOutlet weak var videosThumbnail: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
+        videoDuration.textColor = UIColor.white
+        videoTitle.textColor = UIColor.white
         // Initialization code
     }
 
