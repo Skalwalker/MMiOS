@@ -19,9 +19,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="deQ-Zf-iuo" kind="relationship" relationship="viewControllers" id="7Ed-Jh-wpJ"/>
+                        <segue destination="yp1-wV-eec" kind="relationship" relationship="viewControllers" id="zjJ-4h-zYE"/>
                         <segue destination="YHS-Ho-KwY" kind="relationship" relationship="viewControllers" id="IwL-sT-pyI"/>
                         <segue destination="Wyd-lq-rAw" kind="relationship" relationship="viewControllers" id="PTe-h1-WGm"/>
-                        <segue destination="yp1-wV-eec" kind="relationship" relationship="viewControllers" id="zjJ-4h-zYE"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cao-Cy-Ef2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -173,7 +173,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="JaK-64-r2d" secondAttribute="trailing" constant="-16" id="xpz-sf-RYM"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="Settings" selectedImage="Settings" id="rVp-bv-COD" userLabel="Settings"/>
+                    <tabBarItem key="tabBarItem" title="Options" image="Settings" selectedImage="Settings" id="rVp-bv-COD" userLabel="Settings"/>
                     <connections>
                         <outlet property="settingsLabel" destination="VG4-u6-BOL" id="Cmh-5L-grm"/>
                     </connections>
@@ -417,7 +417,7 @@
             </objects>
             <point key="canvasLocation" x="470.625" y="221.83098591549296"/>
         </scene>
-        <!--Item-->
+        <!--Videos-->
         <scene sceneID="kiR-hs-aLM">
             <objects>
                 <viewController id="yp1-wV-eec" customClass="VideoSelectionTableViewController" customModule="MMiOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -521,7 +521,7 @@
                             <constraint firstItem="f9I-35-lGR" firstAttribute="top" secondItem="n7f-Jr-Idf" secondAttribute="bottom" id="w9U-hW-SJD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="Video" selectedImage="Video" id="uUK-lm-nfy"/>
+                    <tabBarItem key="tabBarItem" title="Videos" image="Video" selectedImage="Video" id="uUK-lm-nfy"/>
                     <connections>
                         <outlet property="tableView" destination="f9I-35-lGR" id="Fmp-W6-nXF"/>
                         <outlet property="videosLibrary" destination="HWL-Lx-BR5" id="mov-Hm-w64"/>

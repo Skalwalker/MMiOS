@@ -40,6 +40,8 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         self.tableView?.delegate = self
         self.tableView?.dataSource = self
         setColors()
