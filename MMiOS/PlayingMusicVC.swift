@@ -143,7 +143,7 @@ class PlayingMusicVC: UIViewController{
         let size = CGSize.init(width: 52.0, height: 52.0)
         
         musicName.text = music?.title
-        albumName.text = music?.albumArtist
+        albumName.text = music?.albumTitle
         artistName.text = music?.artist
         albumImage.image = music?.artwork?.image(at: size)
     }

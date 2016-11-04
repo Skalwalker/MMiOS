@@ -436,9 +436,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RCm-Pp-XJx">
                                             <frame key="frameInset" width="1000" height="1000"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="79" id="0TO-yc-MUL"/>
                                                 <constraint firstAttribute="width" secondItem="RCm-Pp-XJx" secondAttribute="height" multiplier="79:68" id="7PC-SQ-4qH"/>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="68" id="bVI-ah-1Qb"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgj-Fj-dbi">
@@ -462,7 +460,7 @@
                                         <constraint firstItem="fgj-Fj-dbi" firstAttribute="leading" secondItem="RCm-Pp-XJx" secondAttribute="trailing" constant="25" id="9Fb-Jc-Y10"/>
                                         <constraint firstItem="cg4-ED-C1X" firstAttribute="leading" secondItem="fgj-Fj-dbi" secondAttribute="leading" id="FY4-e6-HTw"/>
                                         <constraint firstItem="fgj-Fj-dbi" firstAttribute="top" secondItem="RCm-Pp-XJx" secondAttribute="top" constant="15" id="Fjd-9Q-Ruc"/>
-                                        <constraint firstItem="cg4-ED-C1X" firstAttribute="top" secondItem="fgj-Fj-dbi" secondAttribute="bottom" constant="8" symbolic="YES" id="G2a-rh-8pV"/>
+                                        <constraint firstItem="cg4-ED-C1X" firstAttribute="top" secondItem="fgj-Fj-dbi" secondAttribute="bottom" constant="-1000" id="G2a-rh-8pV"/>
                                         <constraint firstItem="fgj-Fj-dbi" firstAttribute="leading" secondItem="RCm-Pp-XJx" secondAttribute="trailing" constant="25" id="PMO-7C-MSF"/>
                                         <constraint firstItem="fgj-Fj-dbi" firstAttribute="top" secondItem="2YS-lY-uRt" secondAttribute="topMargin" constant="15" id="Wdx-7V-36f"/>
                                         <constraint firstItem="RCm-Pp-XJx" firstAttribute="leading" secondItem="2YS-lY-uRt" secondAttribute="leadingMargin" constant="24" id="rWn-94-lmH"/>
