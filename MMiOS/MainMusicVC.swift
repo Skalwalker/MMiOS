@@ -22,6 +22,7 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var songsLabel: UILabel!
     
     var backColor = ColorWeel()
     var controller = AudioController()
@@ -79,7 +80,7 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
     func setColors(){
         
         let buttons = [artistsButton, albunsButton, playlistsButton]
-        let labels = [playingMusicName, libraryLabel]
+        let labels = [playingMusicName, libraryLabel, songsLabel]
         
         for button in buttons{
             button?.setTitleColor(UIColor.white, for: UIControlState.normal)
