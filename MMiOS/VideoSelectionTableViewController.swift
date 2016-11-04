@@ -10,7 +10,7 @@ import UIKit
 import Photos
 import AVKit
 
-class VideoSelectionTableViewController: UITableViewController {
+class VideoSelectionTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 //    var videoController = VideoController()
     var videoModel = VideoModel()
@@ -18,9 +18,15 @@ class VideoSelectionTableViewController: UITableViewController {
     @IBOutlet weak var videosLibrary: UILabel!
     var backgroundColor = ColorWeel()
 
+    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView?.delegate = self
+        self.tableView?.dataSource = self
+        videosLibrary.textColor = UIColor.white
+        
+        self.tableView.reloadData()
         tableView.contentInset.top = 20
 
 
@@ -44,18 +50,18 @@ class VideoSelectionTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return videoModel.getVideoAssets().count
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: VideoTableViewCell = tableView.dequeueReusableCell(withIdentifier: "videoCell", for: indexPath) as! VideoTableViewCell
 
         //Thumbnail image
@@ -90,7 +96,7 @@ class VideoSelectionTableViewController: UITableViewController {
         return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         let avAsset = videoModel.getVideoAssets()[indexPath.row]
         let myplayerItem = AVPlayerItem.init(asset: avAsset)
