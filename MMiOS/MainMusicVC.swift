@@ -28,29 +28,20 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
     var controller = AudioController()
     var musics = MusicsModel()
     
-
-//    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
-//        return UIInterfaceOrientationMask.portrait
-//    }
-//    
-//    override var shouldAutorotate: Bool{
-//        return false
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        view.backgroundColor = backColor.fixedColor()
+        setColors()
+        hideBottomView()
         
         self.tableView?.delegate = self
         self.tableView?.dataSource = self
-        setColors()
         
+
+    
         //This should not be here
         UITabBar.appearance().tintColor = UIColor.black
         
-        //This is a default prop.
-        playingMusicName.text = "Ain't No Rest For The Wicked"
         
         playingImageView.layer.cornerRadius = 10.0
         playingImageView.clipsToBounds = true
@@ -63,14 +54,17 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        view.backgroundColor = backColor.randomColor()
-        hideBottomView()
+        super.viewWillAppear(animated)
+        let music = controller.itemNowPlaying()
+        let size = CGSize.init(width: 52.0, height: 52.0)
+        self.playingImageView.image = music?.artwork?.image(at: size)
+        self.playingMusicName.text = music?.title
+
         self.tableView.reloadData()
     }
-
+      
     func hideBottomView(){
-        print(controller.getPlaying())
-        if(controller.getPlaying() == false){
+        if(controller.getLocalPlaying() == false){
             self.bottomView.isHidden = true
             self.buttonToPlaying.isEnabled = false
         } else {
@@ -169,6 +163,8 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
     @IBAction func triggerSegue(_ sender: AnyObject) {
         performSegue(withIdentifier: "PlayingMusic", sender: sender)
     }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

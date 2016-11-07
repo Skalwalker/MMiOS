@@ -18,27 +18,17 @@ class AboutMeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = backColor.fixedColor()
         setColor()
         setFontSize()
         
         // Do any additional setup after loading the view.
-    }
-    
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
-        return UIInterfaceOrientationMask.portrait
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        view.backgroundColor = backColor.randomColor()
-    }
-
     
     func setColor(){
         let textBoxes = [textBoxOne, textBoxTwo, textBoxThree]

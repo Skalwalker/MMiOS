@@ -10,6 +10,7 @@ import UIKit
 
 class ColorWeel {
     
+    
     let colorsArray = [
         UIColor(red: 90/255.0, green: 187/255.0, blue: 181/255.0, alpha: 1.0), //teal color
         UIColor(red: 222/255.0, green: 171/255.0, blue: 66/255.0, alpha: 1.0), //yellow color
@@ -26,6 +27,11 @@ class ColorWeel {
         let randomNumber = Int(unRandomNumber)
         
         return colorsArray[randomNumber]
+    }
+    
+    func fixedColor() -> UIColor{
+        let backColor = UIColor(red: 20/255.0, green: 87/255.0, blue: 98/255.0, alpha: 1.0)
+        return backColor
     }
     
 }

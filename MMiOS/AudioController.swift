@@ -15,20 +15,28 @@ class AudioController{
     let cell = Cell()
     let MusicPlayer = MPMusicPlayerController()
     
-    private var playing = false
+    private var playing: Bool
+    
+    init(){
+        self.playing = MusicPlayer.playbackState == .playing
+    }
 
     func getPlaying() -> Bool{
         return MusicPlayer.playbackState == .playing
     }
     
+    func getLocalPlaying() -> Bool{
+        return self.playing
+    }
+    
     private func setPlaying(){
-        playing = true
-        print(self.playing)
+        self.playing = true
     }
     
     func pausePlaying(){
-        playing = false
         MusicPlayer.pause()
+        playing = false
+       
     }
     
     func setQueue(musics: MPMediaQuery){
@@ -36,7 +44,6 @@ class AudioController{
     }
     
     func playWithQueue(musics :MPMediaQuery, musicsLabel: String){
-        self.setPlaying()
         MusicPlayer.stop()
         for item in model.getSongsQuery().items!{
             if item.title == musicsLabel{
@@ -44,20 +51,19 @@ class AudioController{
                 break
             }
         }
-        
-        MusicPlayer.prepareToPlay()
-        MusicPlayer.play()
+        self.play()
     }
     
     
     func playWithPlayList(musics : MPMediaItemCollection) {
-        self.setPlaying()
         MusicPlayer.setQueue(with: musics)
-        MusicPlayer.play()
+        self.play()
     }
     
     func play(){
+        self.setPlaying()
         MusicPlayer.play()
+        
     }
     
     func skipMusic(){
@@ -75,10 +81,4 @@ class AudioController{
     func itemNowPlaying() -> MPMediaItem?{
         return MusicPlayer.nowPlayingItem
     }
-    
-    
-    
-    
-    
-    
 }

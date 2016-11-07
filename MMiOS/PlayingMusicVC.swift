@@ -41,6 +41,7 @@ class PlayingMusicVC: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = backColor.fixedColor()
         
         setFontSizes()
         setColors()
@@ -60,11 +61,6 @@ class PlayingMusicVC: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        view.backgroundColor = backColor.randomColor()
-    }
-
     func setColors(){
         
         let buttons: [UIButton: String] = [playButton: "Play",
