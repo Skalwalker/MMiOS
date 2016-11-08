@@ -18,11 +18,16 @@ class MusicsModel{
     
     init(){
         self.albunsQuery = MPMediaQuery.albums()
+        self.albunsQuery.groupingType = MPMediaGrouping.album
         self.artistsQuery = MPMediaQuery.artists()
+        self.artistsQuery.groupingType = MPMediaGrouping.artist
+        
         self.songsQuery = MPMediaQuery.songs()
         self.playlistsQuery = MPMediaQuery.playlists()
-    }
+        self.playlistsQuery.groupingType = MPMediaGrouping.playlist
     
+    }
+
     func getSongsQuery() -> MPMediaQuery{
         return songsQuery
     }

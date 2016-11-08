@@ -84,8 +84,17 @@ class LibrariesController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections    o bonde chegou eh os predador de perereca
-        return 1
+        var query : MPMediaQuery = musics.getSongsQuery()
+        if passedSegue == "playlists"{
+            query = musics.getPlayListQuery()
+        }
+        else if passedSegue == "albums"{
+            query =  musics.getAlbumQuery()
+        }
+        else if passedSegue == "artists"{
+            query =  musics.getArtistQuery()
+        }
+        return query.itemSections?.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -106,11 +115,12 @@ class LibrariesController: UIViewController, UITableViewDataSource, UITableViewD
             query = musics.getArtistQuery()
             query.groupingType = MPMediaGrouping.artist
         }
+        let loc = query.collectionSections![indexPath.section].range.location
+        let item = query.collections![indexPath.row + loc]
         
-        cell.myLabel.text = query.items?[indexPath.row].title
-        cell.myImage.image = query.items?[indexPath.row].artwork?.image(at: size)
+        cell.myLabel.text = item.
+        cell.myImage.image = item.representativeItem?.artwork?.image(at: size)
 
-        
         return cell
     }
     
