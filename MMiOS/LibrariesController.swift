@@ -13,6 +13,11 @@ class LibrariesController: UIViewController, UITableViewDataSource, UITableViewD
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var playingImageView: UIImageView!
+    @IBOutlet weak var playingMusicName: UILabel!
+    @IBOutlet weak var playOrPause: UIButton!
+    @IBOutlet weak var buttonToPlaying: UIButton!
     
     var backColor = ColorWeel()
     var controller = AudioController()
@@ -30,7 +35,7 @@ class LibrariesController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        super.viewWillAppear(animated)
         if passedSegue == "playlists"{
             self.label.text = "Playlist Library"
         }
@@ -41,6 +46,22 @@ class LibrariesController: UIViewController, UITableViewDataSource, UITableViewD
         else if passedSegue == "artists"{
             self.label.text = "Artist Library"
         }
+        let music = controller.itemNowPlaying()
+        let size = CGSize.init(width: 52.0, height: 52.0)
+        self.playingImageView.image = music?.artwork?.image(at: size)
+        self.playingMusicName.text = music?.title
+        
+        self.tableView.reloadData()
+    }
+    
+    func hideBottomView(){
+        if(controller.getLocalPlaying() == false){
+            self.bottomView.isHidden = true
+            self.buttonToPlaying.isEnabled = false
+        } else {
+            self.bottomView.isHidden = false
+            self.buttonToPlaying.isEnabled = true
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,8 +70,17 @@ class LibrariesController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1
+        if passedSegue == "playlists"{
+            return musics.getPlaylistCount()
+        }
+        else if passedSegue == "albums"{
+            return musics.getAlbumsCount()
+        }
+        else if passedSegue == "artists"{
+            return musics.getArtistsCount()
+        }
+        
+        return 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -59,10 +89,10 @@ class LibrariesController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let size = CGSize.init(width: 52.0, height: 52.0)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GenericCell", for: indexPath) as! GenericCell
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MusicCell", for: indexPath) as! Cell
-        
-        let query : MPMediaQuery
+        var query : MPMediaQuery = musics.getSongsQuery()
         
         if passedSegue == "playlists"{
             query = musics.getPlayListQuery()
@@ -77,8 +107,36 @@ class LibrariesController: UIViewController, UITableViewDataSource, UITableViewD
             query.groupingType = MPMediaGrouping.artist
         }
         
+        cell.myLabel.text = query.items?[indexPath.row].title
+        cell.myImage.image = query.items?[indexPath.row].artwork?.image(at: size)
+
         
         return cell
+    }
+    
+    
+    @IBAction func playOrPause(_ sender: AnyObject) {
+        
+        if(controller.getPlaying()){
+            controller.pausePlaying()
+            playOrPause.setImage(#imageLiteral(resourceName: "Play"), for: .normal)
+        } else {
+            controller.play()
+            playOrPause.setImage(#imageLiteral(resourceName: "Pause"), for: .normal)
+            
+        }
+    }
+    
+    
+    @IBAction func nextMusic(_ sender: AnyObject) {
+        
+        controller.skipMusic()
+        let music = controller.itemNowPlaying()
+        let size = CGSize.init(width: 52.0, height: 52.0)
+        
+        playingMusicName.text = music?.title
+        playingImageView.image = music?.artwork?.image(at: size)
+        
     }
     /*
     // MARK: - Navigation

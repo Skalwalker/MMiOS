@@ -46,4 +46,16 @@ class MusicsModel{
     func getPlayListQuery() -> MPMediaQuery{
         return playlistsQuery
     }
+    
+    func getAlbumsCount() -> Int{
+        return (albunsQuery.items?.count)!
+    }
+    
+    func getArtistsCount() -> Int{
+        return (artistsQuery.items?.count)!
+    }
+    
+    func getPlaylistCount() -> Int{
+        return (playlistsQuery.items?.count)!
+    }
 }

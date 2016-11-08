@@ -45,11 +45,14 @@ class AudioController{
     
     func playWithQueue(musics :MPMediaQuery, musicsLabel: String){
         MusicPlayer.stop()
-        for item in model.getSongsQuery().items!{
-            if item.title == musicsLabel{
-                MusicPlayer.nowPlayingItem = item
-                break
-            }
+        //for item in model.getSongsQuery().items!{
+        //    if item.title == musicsLabel{
+        //        MusicPlayer.nowPlayingItem = item
+        //        break
+        //    }
+        //}
+        while MusicPlayer.nowPlayingItem?.title != musicsLabel{
+            MusicPlayer.skipToNextItem()
         }
         self.play()
     }
