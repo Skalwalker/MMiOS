@@ -71,30 +71,28 @@ class LibrariesController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if passedSegue == "playlists"{
-            return musics.getPlaylistCount()
+            return musics.getPlaylistCount(section: section)
         }
         else if passedSegue == "albums"{
-            return musics.getAlbumsCount()
+            return musics.getAlbumsCount(section: section)
         }
         else if passedSegue == "artists"{
-            return musics.getArtistsCount()
+            return musics.getArtistsCount(section: section)
         }
-        
-        return 0
+        return 1
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        var query : MPMediaQuery = musics.getSongsQuery()
         if passedSegue == "playlists"{
-            query = musics.getPlayListQuery()
+            return musics.getPlaylistsSections()
         }
         else if passedSegue == "albums"{
-            query =  musics.getAlbumQuery()
+            return musics.getAlbumsSections()
         }
         else if passedSegue == "artists"{
-            query =  musics.getArtistQuery()
+            return musics.getArtistsSections()
         }
-        return query.itemSections?.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -105,22 +103,29 @@ class LibrariesController: UIViewController, UITableViewDataSource, UITableViewD
         
         if passedSegue == "playlists"{
             query = musics.getPlayListQuery()
-            query.groupingType = MPMediaGrouping.playlist
         }
         else if passedSegue == "albums"{
             query = musics.getAlbumQuery()
-            query.groupingType = MPMediaGrouping.album
         }
         else if passedSegue == "artists"{
             query = musics.getArtistQuery()
-            query.groupingType = MPMediaGrouping.artist
         }
         let loc = query.collectionSections![indexPath.section].range.location
         let item = query.collections![indexPath.row + loc]
         
-        cell.myLabel.text = item.
-        cell.myImage.image = item.representativeItem?.artwork?.image(at: size)
+        
+        if passedSegue == "playlists"{
+            cell.myLabel.text = item.items[0].title
+        }
+        else if passedSegue == "albums"{
+            cell.myLabel.text = item.items[0].albumTitle
+        }
+        else if passedSegue == "artists"{
+            cell.myLabel.text = item.items[0].artist
+        }
 
+        cell.myImage.image = item.representativeItem?.artwork?.image(at: size)
+        
         return cell
     }
     
@@ -148,6 +153,24 @@ class LibrariesController: UIViewController, UITableViewDataSource, UITableViewD
         playingImageView.image = music?.artwork?.image(at: size)
         
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var query : MPMediaQuery = musics.getPlayListQuery()
+        
+        if passedSegue == "playlists"{
+            query = musics.getPlayListQuery()
+        }
+        else if passedSegue == "albums"{
+            query = musics.getAlbumQuery()
+        }
+        else if passedSegue == "artists"{
+            query = musics.getArtistQuery()
+        }
+        
+        let loc = query.collectionSections![indexPath.section].range.location
+        controller.playWithPlayList(musics: query.collections![indexPath.row + loc])
+    }
+
     /*
     // MARK: - Navigation
 

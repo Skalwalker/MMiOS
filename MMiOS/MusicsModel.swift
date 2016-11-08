@@ -27,7 +27,7 @@ class MusicsModel{
         self.playlistsQuery.groupingType = MPMediaGrouping.playlist
     
     }
-
+    
     func getSongsQuery() -> MPMediaQuery{
         return songsQuery
     }
@@ -52,15 +52,28 @@ class MusicsModel{
         return playlistsQuery
     }
     
-    func getAlbumsCount() -> Int{
-        return (albunsQuery.items?.count)!
+    func getAlbumsCount(section : Int) -> Int{
+        return albunsQuery.collectionSections![section].range.length
     }
     
-    func getArtistsCount() -> Int{
-        return (artistsQuery.items?.count)!
+    func getArtistsCount(section : Int) -> Int{
+        return artistsQuery.collectionSections![section].range.length
     }
     
-    func getPlaylistCount() -> Int{
-        return (playlistsQuery.items?.count)!
+    func getPlaylistCount(section : Int) -> Int{
+        return playlistsQuery.collectionSections![section].range.length
     }
+    
+    func getAlbumsSections() -> Int{
+        return (albunsQuery.itemSections?.count)!
+    }
+    
+    func getArtistsSections() -> Int{
+        return (artistsQuery.itemSections?.count)!
+    }
+
+    func getPlaylistsSections() -> Int{
+        return (playlistsQuery.itemSections?.count)!
+    }
+
 }
