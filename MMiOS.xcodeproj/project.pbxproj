@@ -23,6 +23,7 @@
 		884A21841D7B93620017EB42 /* MMiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884A21831D7B93620017EB42 /* MMiOSTests.swift */; };
 		884A218F1D7B93620017EB42 /* MMiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884A218E1D7B93620017EB42 /* MMiOSUITests.swift */; };
 		886D62591D9D2BEC0049E552 /* MainMusicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886D62581D9D2BEC0049E552 /* MainMusicVC.swift */; };
+		8890F4011DD208E50096869E /* LibrariesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8890F4001DD208E50096869E /* LibrariesController.swift */; };
 		8891FB6F1DA5A86E00D964D4 /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8891FB6E1DA5A86E00D964D4 /* AudioController.swift */; };
 		88EAC8311DB51854008DD730 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EAC8301DB51854008DD730 /* Cell.swift */; };
 /* End PBXBuildFile section */
@@ -67,6 +68,7 @@
 		884A218E1D7B93620017EB42 /* MMiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMiOSUITests.swift; sourceTree = "<group>"; };
 		884A21901D7B93620017EB42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		886D62581D9D2BEC0049E552 /* MainMusicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMusicVC.swift; sourceTree = "<group>"; };
+		8890F4001DD208E50096869E /* LibrariesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibrariesController.swift; sourceTree = "<group>"; };
 		8891FB6E1DA5A86E00D964D4 /* AudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
 		88EAC8301DB51854008DD730 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +127,7 @@
 			children = (
 				886D62581D9D2BEC0049E552 /* MainMusicVC.swift */,
 				88227C671DA687F200F3CD79 /* PlayingMusicVC.swift */,
+				8890F4001DD208E50096869E /* LibrariesController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				3DE69E7A1D9CAB3500A590E5 /* VideoSelectionTableViewController.swift in Sources */,
 				880703751D9EE9320056208E /* ConfigVC.swift in Sources */,
 				884A21741D7B93620017EB42 /* MMiOS.xcdatamodeld in Sources */,
+				8890F4011DD208E50096869E /* LibrariesController.swift in Sources */,
 				3DF8B1B51DB1581300A54D70 /* VideoModel.swift in Sources */,
 				880703671D9ED4330056208E /* ColorWeel.swift in Sources */,
 				881E93251DAEF1EA003BF71C /* MusicsModel.swift in Sources */,

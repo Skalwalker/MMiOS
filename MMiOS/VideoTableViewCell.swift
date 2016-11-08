@@ -19,6 +19,8 @@ class VideoTableViewCell: UITableViewCell {
         self.backgroundColor = UIColor.clear
         videoDuration.textColor = UIColor.white
         videoTitle.textColor = UIColor.white
+        videosThumbnail.layer.cornerRadius = 10.0
+        videosThumbnail.clipsToBounds = true
         // Initialization code
     }
 

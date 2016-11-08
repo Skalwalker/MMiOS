@@ -178,6 +178,18 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
             vc.passedAlbumName = (music?.albumTitle)!
             vc.passedMusicName = (music?.title)!
             vc.passedImage = (music?.artwork?.image(at: size))!
+        } else {
+            let vc = segue.destination as! LibrariesController
+            
+            if(segue.identifier == "playlists"){
+                vc.passedSegue = "playlists"
+            } else if(segue.identifier == "albums"){
+                vc.passedSegue = "albums"
+            } else if(segue.identifier == "artists"){
+                vc.passedSegue = "artists"
+            }
         }
+        
+       
     }
 }

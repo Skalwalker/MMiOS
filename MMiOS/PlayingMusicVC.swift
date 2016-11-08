@@ -146,9 +146,7 @@ class PlayingMusicVC: UIViewController{
     
     
     @IBAction func changeVolume(_ sender: AnyObject) {
-//        let value = sender as! UISlider
-//        let selectedValue = Float(value.value)
-//        reproductor.volume = sender.value
+        print(Volume.value)
     }
     
     
