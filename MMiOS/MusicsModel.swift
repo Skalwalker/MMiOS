@@ -52,16 +52,16 @@ class MusicsModel{
         return playlistsQuery
     }
     
-    func getAlbumsCount(section : Int) -> Int{
-        return albunsQuery.collectionSections![section].range.length
+    func getAlbumsCount() -> Int{
+        return (albunsQuery.collections?.count)!
     }
     
-    func getArtistsCount(section : Int) -> Int{
-        return artistsQuery.collectionSections![section].range.length
+    func getArtistsCount() -> Int{
+        return (artistsQuery.collections?.count)!
     }
     
-    func getPlaylistCount(section : Int) -> Int{
-        return playlistsQuery.collectionSections![section].range.length
+    func getPlaylistCount() -> Int{
+        return (playlistsQuery.collections?.count)!
     }
     
     func getAlbumsSections() -> Int{

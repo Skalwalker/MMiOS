@@ -30,6 +30,10 @@ class LibrariesController: UIViewController, UITableViewDataSource, UITableViewD
         self.tableView.delegate = self
         self.view.backgroundColor = backColor.fixedColor()
         self.label.textColor = UIColor.white
+        playingMusicName.textColor = UIColor.white
+        
+        blurBottomView()
+        hideBottomView()
         // Do any additional setup after loading the view.
         
     }
@@ -51,6 +55,7 @@ class LibrariesController: UIViewController, UITableViewDataSource, UITableViewD
         self.playingImageView.image = music?.artwork?.image(at: size)
         self.playingMusicName.text = music?.title
         
+        hideBottomView()
         self.tableView.reloadData()
     }
     
@@ -71,29 +76,28 @@ class LibrariesController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if passedSegue == "playlists"{
-            return musics.getPlaylistCount(section: section)
+            return musics.getPlaylistCount()
         }
         else if passedSegue == "albums"{
-            return musics.getAlbumsCount(section: section)
+            return musics.getAlbumsCount()
         }
         else if passedSegue == "artists"{
-            return musics.getArtistsCount(section: section)
+            return musics.getArtistsCount()
         }
         return 1
     }
     
+    @IBAction func dismissScreen(_ sender: AnyObject) {
+        
+        dismiss(animated: false, completion: nil)
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        if passedSegue == "playlists"{
-            return musics.getPlaylistsSections()
-        }
-        else if passedSegue == "albums"{
-            return musics.getAlbumsSections()
-        }
-        else if passedSegue == "artists"{
-            return musics.getArtistsSections()
-        }
+        
         return 1
     }
+    
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let size = CGSize.init(width: 52.0, height: 52.0)
@@ -103,32 +107,37 @@ class LibrariesController: UIViewController, UITableViewDataSource, UITableViewD
         
         if passedSegue == "playlists"{
             query = musics.getPlayListQuery()
+//            cell.myLabel.text = item.items[0].title
+//            cell.myImage.image = item.representativeItem?.artwork?.image(at: size)
         }
         else if passedSegue == "albums"{
             query = musics.getAlbumQuery()
+            let album = query.collections?[indexPath.row].representativeItem
+            cell.myLabel.text = album?.albumTitle
+            cell.myImage.image = album?.artwork?.image(at: size)
+            cell.songsCount.text = String((query.collections?[indexPath.row].count)!).appending(" Song(s)")
         }
         else if passedSegue == "artists"{
             query = musics.getArtistQuery()
+            let artist = query.collections?[indexPath.row].representativeItem
+            cell.myLabel.text = artist?.artist
+            cell.myImage.image = artist?.artwork?.image(at: size)
+            cell.songsCount.text = String((query.collections?[indexPath.row].count)!).appending(" Song(s)")
         }
-        let loc = query.collectionSections![indexPath.section].range.location
-        let item = query.collections![indexPath.row + loc]
-        
-        
-        if passedSegue == "playlists"{
-            cell.myLabel.text = item.items[0].title
-        }
-        else if passedSegue == "albums"{
-            cell.myLabel.text = item.items[0].albumTitle
-        }
-        else if passedSegue == "artists"{
-            cell.myLabel.text = item.items[0].artist
-        }
-
-        cell.myImage.image = item.representativeItem?.artwork?.image(at: size)
-        
         return cell
     }
     
+    func blurBottomView(){
+        if !UIAccessibilityIsReduceTransparencyEnabled(){
+            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            
+            blurEffectView.frame = self.bottomView.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.bottomView.addSubview(blurEffectView)
+            self.bottomView.sendSubview(toBack: blurEffectView)
+        }
+    }
     
     @IBAction func playOrPause(_ sender: AnyObject) {
         
@@ -169,16 +178,28 @@ class LibrariesController: UIViewController, UITableViewDataSource, UITableViewD
         
         let loc = query.collectionSections![indexPath.section].range.location
         controller.playWithPlayList(musics: query.collections![indexPath.row + loc])
+        
+        let music = controller.itemNowPlaying()
+        let size = CGSize.init(width: 52.0, height: 52.0)
+        
+        playingMusicName.text = music?.title
+        playingImageView.image = music?.artwork?.image(at: size)
+        hideBottomView()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        let music = controller.itemNowPlaying()
+        
+        if(segue.identifier == "PlayingMusic"){
+            let vc = segue.destination as! PlayingMusicVC
+            let size = CGSize.init(width: 240.0, height: 240.0)
+            
+            vc.passedArtistName = (music?.albumArtist)!
+            vc.passedAlbumName = (music?.albumTitle)!
+            vc.passedMusicName = (music?.title)!
+            vc.passedImage = (music?.artwork?.image(at: size))!
+        }
     }
-    */
 
 }

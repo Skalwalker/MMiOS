@@ -16,11 +16,13 @@ class GenericCell: UITableViewCell{
 
     @IBOutlet weak var myLabel: UILabel!
     @IBOutlet weak var myImage: UIImageView!
+    @IBOutlet weak var songsCount: UILabel!
     var albumName: String = "Default"
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        songsCount.textColor = UIColor.white
         self.backgroundColor = UIColor.clear
         myLabel.textColor = UIColor.white
         myImage.layer.cornerRadius = 10.0

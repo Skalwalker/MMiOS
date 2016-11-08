@@ -17,6 +17,7 @@ class Cell: UITableViewCell{
     @IBOutlet weak var musicsLabel: UILabel!
     @IBOutlet weak var albumImage: UIImageView!
     @IBOutlet weak var artistsLabel: UILabel!
+
     var albumName: String = "Default"
 
     
@@ -25,6 +26,7 @@ class Cell: UITableViewCell{
         self.backgroundColor = UIColor.clear
         musicsLabel.textColor = UIColor.white
         artistsLabel.textColor = UIColor.white
+       
         albumImage.layer.cornerRadius = 10.0
         albumImage.clipsToBounds = true
 }
