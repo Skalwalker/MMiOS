@@ -48,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		04146F0B1DD23F78003325F8 /* GenericCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericCell.swift; sourceTree = "<group>"; };
+		3D7678F91DD5569E0064337F /* MMiOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MMiOS.entitlements; sourceTree = "<group>"; };
 		3DE69E791D9CAB3500A590E5 /* VideoSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSelectionTableViewController.swift; sourceTree = "<group>"; };
 		3DE69E7B1D9CB1C600A590E5 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		3DF8B1B41DB1581300A54D70 /* VideoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
@@ -191,6 +192,7 @@
 		884A216A1D7B93620017EB42 /* MMiOS */ = {
 			isa = PBXGroup;
 			children = (
+				3D7678F91DD5569E0064337F /* MMiOS.entitlements */,
 				884A219F1D7B93CA0017EB42 /* Main */,
 				884A219D1D7B93A30017EB42 /* Audio */,
 				884A219C1D7B93860017EB42 /* Video */,
@@ -320,8 +322,13 @@
 				TargetAttributes = {
 					884A21671D7B93620017EB42 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = 5SEHAVKAF2;
+						DevelopmentTeam = QJXXZFMD29;
 						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					884A217E1D7B93620017EB42 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -546,7 +553,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5SEHAVKAF2;
+				CODE_SIGN_ENTITLEMENTS = MMiOS/MMiOS.entitlements;
+				DEVELOPMENT_TEAM = QJXXZFMD29;
 				INFOPLIST_FILE = MMiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.roadwaytoss.MMiOS;
@@ -560,7 +568,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5SEHAVKAF2;
+				CODE_SIGN_ENTITLEMENTS = MMiOS/MMiOS.entitlements;
+				DEVELOPMENT_TEAM = QJXXZFMD29;
 				INFOPLIST_FILE = MMiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.roadwaytoss.MMiOS;

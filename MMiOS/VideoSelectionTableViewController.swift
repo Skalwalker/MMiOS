@@ -10,15 +10,21 @@ import UIKit
 import Photos
 import AVKit
 
-class VideoSelectionTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class VideoSelectionTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIDocumentMenuDelegate {
 
 //    var videoController = VideoController()
     var videoModel = VideoModel()
     var videos: PHFetchResult<PHAsset>!
     @IBOutlet weak var videosLibrary: UILabel!
     var backgroundColor = ColorWeel()
-
     @IBOutlet weak var tableView: UITableView!
+    @IBAction func Import(_ sender: AnyObject) {
+//        NSArray *types = [(NSString*)kUTTypeImage,(NSString*)kUTTypeSpreadsheet,(NSString*)kUTTypePresentation,(NSString*)kUTTypeDatabase,(NSString*)kUTTypeFolder,(NSString*)kUTTypeZipArchive,(NSString*)kUTTypeVideo];
+
+        let documentVC = UIDocumentMenuViewController.init(documentTypes: ["com.apple.quicktime-movie"], in: .import)
+        documentVC.delegate = self
+        self.present(documentVC, animated: true, completion: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +35,8 @@ class VideoSelectionTableViewController: UIViewController, UITableViewDelegate, 
         
         self.tableView.reloadData()
         tableView.contentInset.top = 20
+        
+        
 
 
         
@@ -53,6 +61,8 @@ class VideoSelectionTableViewController: UIViewController, UITableViewDelegate, 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: VideoTableViewCell = tableView.dequeueReusableCell(withIdentifier: "videoCell", for: indexPath) as! VideoTableViewCell
+        //deselect
+        tableView.deselectRow(at: indexPath, animated: true)
 
         //Thumbnail image
         let image = videoModel.getThumbnails()[indexPath.row]
@@ -97,5 +107,13 @@ class VideoSelectionTableViewController: UIViewController, UITableViewDelegate, 
         self.present(playerViewController, animated: true, completion: {
             playerViewController.player?.play()
         })
+    }
+    
+    //document menu protocol
+    func documentMenu(_ documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
+    }
+    
+    func documentMenuWasCancelled(_ documentMenu: UIDocumentMenuViewController) {
+    
     }
 }
