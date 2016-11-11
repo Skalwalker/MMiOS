@@ -45,15 +45,21 @@ class AudioController{
     
     func playWithQueue(musics :MPMediaQuery, musicsLabel: String){
         MusicPlayer.stop()
-        //for item in model.getSongsQuery().items!{
-        //    if item.title == musicsLabel{
-        //        MusicPlayer.nowPlayingItem = item
-        //        break
-        //    }
-        //}
-        while MusicPlayer.nowPlayingItem?.title != musicsLabel{
-            MusicPlayer.skipToNextItem()
+        
+        if (musics.filterPredicates?.count)! > 0{
+            for fpredicate in musics.filterPredicates!{
+                musics.removeFilterPredicate(fpredicate)
+            }
+            
         }
+        
+        let predicate = MPMediaPropertyPredicate.init(value: musicsLabel, forProperty: "title")
+        musics.addFilterPredicate(predicate);
+        
+        MusicPlayer.setQueue(with: musics);
+        
+        MusicPlayer.prepareToPlay();
+        
         self.play()
     }
     
