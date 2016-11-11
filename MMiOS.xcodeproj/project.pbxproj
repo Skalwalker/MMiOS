@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04146F0C1DD23F78003325F8 /* GenericCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04146F0B1DD23F78003325F8 /* GenericCell.swift */; };
+		3D2F85A41DD64FED000CEFDE /* CustomPlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F85A31DD64FED000CEFDE /* CustomPlayerVC.swift */; };
 		3DE69E7A1D9CAB3500A590E5 /* VideoSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE69E791D9CAB3500A590E5 /* VideoSelectionTableViewController.swift */; };
 		3DE69E7C1D9CB1C600A590E5 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE69E7B1D9CB1C600A590E5 /* VideoTableViewCell.swift */; };
 		3DF8B1B51DB1581300A54D70 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF8B1B41DB1581300A54D70 /* VideoModel.swift */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		04146F0B1DD23F78003325F8 /* GenericCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericCell.swift; sourceTree = "<group>"; };
+		3D2F85A31DD64FED000CEFDE /* CustomPlayerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPlayerVC.swift; sourceTree = "<group>"; };
 		3D7678F91DD5569E0064337F /* MMiOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MMiOS.entitlements; sourceTree = "<group>"; };
 		3DE69E791D9CAB3500A590E5 /* VideoSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSelectionTableViewController.swift; sourceTree = "<group>"; };
 		3DE69E7B1D9CB1C600A590E5 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				3DE69E791D9CAB3500A590E5 /* VideoSelectionTableViewController.swift */,
 				3DE69E7B1D9CB1C600A590E5 /* VideoTableViewCell.swift */,
+				3D2F85A31DD64FED000CEFDE /* CustomPlayerVC.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D2F85A41DD64FED000CEFDE /* CustomPlayerVC.swift in Sources */,
 				880703721D9EE8850056208E /* AboutMeVC.swift in Sources */,
 				8891FB6F1DA5A86E00D964D4 /* AudioController.swift in Sources */,
 				884A216C1D7B93620017EB42 /* AppDelegate.swift in Sources */,
