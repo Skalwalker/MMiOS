@@ -16,6 +16,7 @@
 		880703751D9EE9320056208E /* ConfigVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880703741D9EE9320056208E /* ConfigVC.swift */; };
 		881E93251DAEF1EA003BF71C /* MusicsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881E93241DAEF1EA003BF71C /* MusicsModel.swift */; };
 		88227C681DA687F200F3CD79 /* PlayingMusicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88227C671DA687F200F3CD79 /* PlayingMusicVC.swift */; };
+		88386EF91DD66B300026C78A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88386EF81DD66B300026C78A /* CloudKit.framework */; };
 		884A216C1D7B93620017EB42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884A216B1D7B93620017EB42 /* AppDelegate.swift */; };
 		884A21711D7B93620017EB42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 884A216F1D7B93620017EB42 /* Main.storyboard */; };
 		884A21741D7B93620017EB42 /* MMiOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 884A21721D7B93620017EB42 /* MMiOS.xcdatamodeld */; };
@@ -57,6 +58,7 @@
 		880703741D9EE9320056208E /* ConfigVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigVC.swift; sourceTree = "<group>"; };
 		881E93241DAEF1EA003BF71C /* MusicsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicsModel.swift; sourceTree = "<group>"; };
 		88227C671DA687F200F3CD79 /* PlayingMusicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayingMusicVC.swift; sourceTree = "<group>"; };
+		88386EF81DD66B300026C78A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		884A21681D7B93620017EB42 /* MMiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		884A216B1D7B93620017EB42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		884A21701D7B93620017EB42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88386EF91DD66B300026C78A /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +172,14 @@
 			name = Config;
 			sourceTree = "<group>";
 		};
+		88386EF71DD66B300026C78A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88386EF81DD66B300026C78A /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		884A215F1D7B93610017EB42 = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +187,7 @@
 				884A21821D7B93620017EB42 /* MMiOSTests */,
 				884A218D1D7B93620017EB42 /* MMiOSUITests */,
 				884A21691D7B93620017EB42 /* Products */,
+				88386EF71DD66B300026C78A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -322,9 +334,12 @@
 				TargetAttributes = {
 					884A21671D7B93620017EB42 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = QJXXZFMD29;
+						DevelopmentTeam = 5SEHAVKAF2;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
 							com.apple.iCloud = {
 								enabled = 1;
 							};
@@ -554,10 +569,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MMiOS/MMiOS.entitlements;
-				DEVELOPMENT_TEAM = QJXXZFMD29;
+				DEVELOPMENT_TEAM = 5SEHAVKAF2;
 				INFOPLIST_FILE = MMiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.roadwaytoss.MMiOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roadwaytoss.MMiOS.UnB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -569,10 +584,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MMiOS/MMiOS.entitlements;
-				DEVELOPMENT_TEAM = QJXXZFMD29;
+				DEVELOPMENT_TEAM = 5SEHAVKAF2;
 				INFOPLIST_FILE = MMiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.roadwaytoss.MMiOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roadwaytoss.MMiOS.UnB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

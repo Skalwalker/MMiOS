@@ -77,6 +77,9 @@ class VideoModel{
      * Interface para get dos videos
      */
     func getVideoAssets() -> [AVAsset] {
+        
+        
+        
         return self.videos
     }
     

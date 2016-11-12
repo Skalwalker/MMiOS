@@ -24,6 +24,11 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var songsLabel: UILabel!
     
+    @IBOutlet weak var errorView: UIView!
+    @IBOutlet weak var errorTitle: UILabel!
+    @IBOutlet weak var errorMsg: UILabel!
+    
+    
     var backColor = ColorWeel()
     var controller = AudioController()
     var musics = MusicsModel()
@@ -46,12 +51,22 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
         playingImageView.layer.cornerRadius = 10.0
         playingImageView.clipsToBounds = true
         
+        
+        
+        if (tableView.numberOfRows(inSection: 0) == 0){
+            blurMainView()
+        } else {
+            errorMsg.isHidden = true
+            errorTitle.isHidden = true
+        }
+        
         self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -60,6 +75,7 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
         self.playingImageView.image = music?.artwork?.image(at: size)
         self.playingMusicName.text = music?.title
 
+        
         self.tableView.reloadData()
     }
       
@@ -101,8 +117,33 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
         }
     }
     
+    func blurMainView(){
+        if !UIAccessibilityIsReduceTransparencyEnabled(){
+            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            
+            blurEffectView.frame = self.errorView.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.errorView.addSubview(blurEffectView)
+            self.view.bringSubview(toFront: errorView)
+            self.errorView.sendSubview(toBack: blurEffectView)
+            
+            errorMsg.isHidden = false
+            errorTitle.isHidden = false
+        }
+        
+       
+    
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if musics.getSongQueryCount() == 0{
+            return 0;
+        }
+        
+        errorView.isHidden = true
+        
         return musics.getSongQueryCount()
     }
 

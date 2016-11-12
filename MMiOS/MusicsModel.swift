@@ -37,6 +37,10 @@ class MusicsModel{
     }
     
     func getSongQueryCount() -> Int{
+        if songsQuery.items == nil{
+            return 0
+        }
+        
         return (songsQuery.items?.count)!
     }
     

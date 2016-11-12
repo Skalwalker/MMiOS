@@ -17,6 +17,13 @@ class VideoSelectionTableViewController: UIViewController, UITableViewDelegate, 
     var videos: PHFetchResult<PHAsset>!
     @IBOutlet weak var videosLibrary: UILabel!
     var backgroundColor = ColorWeel()
+    
+    
+    
+    @IBOutlet weak var errorView: UIView!
+    @IBOutlet weak var errorText: UILabel!
+    @IBOutlet weak var errorTitlee: UILabel!
+    
     @IBOutlet weak var tableView: UITableView!
     @IBAction func Import(_ sender: AnyObject) {
 //        NSArray *types = [(NSString*)kUTTypeImage,(NSString*)kUTTypeSpreadsheet,(NSString*)kUTTypePresentation,(NSString*)kUTTypeDatabase,(NSString*)kUTTypeFolder,(NSString*)kUTTypeZipArchive,(NSString*)kUTTypeVideo];
@@ -36,8 +43,12 @@ class VideoSelectionTableViewController: UIViewController, UITableViewDelegate, 
         self.tableView.reloadData()
         tableView.contentInset.top = 20
         
-        
-
+        if(tableView.numberOfRows(inSection: 0) == 0){
+            blurMainView()
+        } else {
+            errorText.isHidden = true
+            errorTitlee.isHidden = true
+        }
 
         
     }
@@ -55,9 +66,29 @@ class VideoSelectionTableViewController: UIViewController, UITableViewDelegate, 
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        
+        if videoModel.getVideoAssets().count != 0{
+            errorView.isHidden = true
+        }
+        
         return videoModel.getVideoAssets().count
     }
-
+    
+    func blurMainView(){
+        if !UIAccessibilityIsReduceTransparencyEnabled(){
+            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            
+            blurEffectView.frame = self.errorView.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.errorView.addSubview(blurEffectView)
+            self.view.bringSubview(toFront: errorView)
+            self.errorView.sendSubview(toBack: blurEffectView)
+            
+            errorText.isHidden = false
+            errorTitlee.isHidden = false
+        }
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: VideoTableViewCell = tableView.dequeueReusableCell(withIdentifier: "videoCell", for: indexPath) as! VideoTableViewCell
