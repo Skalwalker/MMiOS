@@ -386,6 +386,19 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nUM-Lh-hCB">
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54m-ie-KJC">
+                                        <color key="backgroundColor" white="1" alpha="0.2004291373" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="4NJ-1A-gPW"/>
+                                            <constraint firstAttribute="height" constant="32" id="Gwv-R6-RGb"/>
+                                        </constraints>
+                                        <state key="normal" title="Refresh">
+                                            <color key="titleColor" white="1" alpha="0.2453510123" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="refresh:" destination="deQ-Zf-iuo" eventType="touchUpInside" id="NwD-Wo-Wrf"/>
+                                        </connections>
+                                    </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="itJ-IM-NAW">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="88" id="Alc-gg-stT"/>
@@ -407,6 +420,8 @@
                                     <constraint firstItem="itJ-IM-NAW" firstAttribute="centerX" secondItem="nUM-Lh-hCB" secondAttribute="centerX" id="IQL-at-BJI"/>
                                     <constraint firstItem="C1Y-7i-xfO" firstAttribute="centerY" secondItem="itJ-IM-NAW" secondAttribute="centerY" constant="-51.5" id="glq-e4-w3I"/>
                                     <constraint firstItem="C1Y-7i-xfO" firstAttribute="centerX" secondItem="itJ-IM-NAW" secondAttribute="centerX" id="gze-ty-NQU"/>
+                                    <constraint firstItem="54m-ie-KJC" firstAttribute="bottom" secondItem="itJ-IM-NAW" secondAttribute="bottom" constant="40" id="oU0-Kq-vzf"/>
+                                    <constraint firstItem="54m-ie-KJC" firstAttribute="centerX" secondItem="itJ-IM-NAW" secondAttribute="centerX" id="z7r-Li-Ght"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -470,31 +485,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S42-OY-axE">
-                                <subviews>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXm-UB-Yy1">
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="280" id="2Ut-Ci-TU4"/>
-                                            <constraint firstAttribute="height" constant="88" id="Jnq-bo-t1h"/>
-                                        </constraints>
-                                        <string key="text">You have nothing to display. Maybe permissions for this information is not yet allowed, you can change that on your phone settings.</string>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.26000000000000001" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Content Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4c-Ri-BZU">
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="f4c-Ri-BZU" firstAttribute="centerX" secondItem="uXm-UB-Yy1" secondAttribute="centerX" id="0FM-iv-X4e"/>
-                                    <constraint firstItem="uXm-UB-Yy1" firstAttribute="centerY" secondItem="S42-OY-axE" secondAttribute="centerY" id="XPN-Zt-ZVA"/>
-                                    <constraint firstItem="f4c-Ri-BZU" firstAttribute="baseline" secondItem="uXm-UB-Yy1" secondAttribute="baseline" constant="-85" id="YVb-dZ-tls"/>
-                                    <constraint firstItem="uXm-UB-Yy1" firstAttribute="centerX" secondItem="S42-OY-axE" secondAttribute="centerX" id="cLe-Sr-HDH"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n7f-Jr-Idf" userLabel="TopView">
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Library" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWL-Lx-BR5" userLabel="Musics Library Label">
@@ -583,6 +573,46 @@
                                     <outlet property="delegate" destination="yp1-wV-eec" id="8Vo-Or-Kbt"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S42-OY-axE">
+                                <subviews>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXm-UB-Yy1">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="2Ut-Ci-TU4"/>
+                                            <constraint firstAttribute="height" constant="88" id="Jnq-bo-t1h"/>
+                                        </constraints>
+                                        <string key="text">You have nothing to display. Maybe permissions for this information is not yet allowed, you can change that on your phone settings.</string>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.26000000000000001" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Content Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4c-Ri-BZU">
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hS4-gA-h3U">
+                                        <color key="backgroundColor" white="1" alpha="0.20042913732394366" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="JVN-Vh-API"/>
+                                            <constraint firstAttribute="width" constant="75" id="Y6r-o2-Y4E"/>
+                                        </constraints>
+                                        <state key="normal" title="Refresh">
+                                            <color key="titleColor" white="1" alpha="0.24535101232394366" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="refresh:" destination="yp1-wV-eec" eventType="touchUpInside" id="RfV-PZ-sag"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="f4c-Ri-BZU" firstAttribute="centerX" secondItem="uXm-UB-Yy1" secondAttribute="centerX" id="0FM-iv-X4e"/>
+                                    <constraint firstItem="hS4-gA-h3U" firstAttribute="bottom" secondItem="uXm-UB-Yy1" secondAttribute="bottom" constant="42" id="8w8-i5-3i6"/>
+                                    <constraint firstItem="hS4-gA-h3U" firstAttribute="centerX" secondItem="uXm-UB-Yy1" secondAttribute="centerX" id="GVs-Sd-ZOn"/>
+                                    <constraint firstItem="uXm-UB-Yy1" firstAttribute="centerY" secondItem="S42-OY-axE" secondAttribute="centerY" id="XPN-Zt-ZVA"/>
+                                    <constraint firstItem="f4c-Ri-BZU" firstAttribute="baseline" secondItem="uXm-UB-Yy1" secondAttribute="baseline" constant="-85" id="YVb-dZ-tls"/>
+                                    <constraint firstItem="uXm-UB-Yy1" firstAttribute="centerX" secondItem="S42-OY-axE" secondAttribute="centerX" id="cLe-Sr-HDH"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -604,6 +634,7 @@
                         <outlet property="errorText" destination="uXm-UB-Yy1" id="Qay-SX-n19"/>
                         <outlet property="errorTitlee" destination="f4c-Ri-BZU" id="6yi-7b-udc"/>
                         <outlet property="errorView" destination="S42-OY-axE" id="gl8-9X-x2L"/>
+                        <outlet property="refreshButton" destination="hS4-gA-h3U" id="ykS-vc-VwR"/>
                         <outlet property="tableView" destination="f9I-35-lGR" id="Fmp-W6-nXF"/>
                         <outlet property="videosLibrary" destination="HWL-Lx-BR5" id="mov-Hm-w64"/>
                     </connections>

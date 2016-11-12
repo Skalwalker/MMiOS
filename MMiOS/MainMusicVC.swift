@@ -55,9 +55,6 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
         
         if (tableView.numberOfRows(inSection: 0) == 0){
             blurMainView()
-        } else {
-            errorMsg.isHidden = true
-            errorTitle.isHidden = true
         }
         
         self.tableView.reloadData()
@@ -74,9 +71,16 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
         let size = CGSize.init(width: 52.0, height: 52.0)
         self.playingImageView.image = music?.artwork?.image(at: size)
         self.playingMusicName.text = music?.title
-
         
         self.tableView.reloadData()
+    }
+    
+    @IBAction func refresh(_ sender: AnyObject) {
+        self.tableView.reloadData()
+        
+        if (tableView.numberOfRows(inSection: 0) != 0){
+            errorView.isHidden = true
+        }
     }
       
     func hideBottomView(){
@@ -131,9 +135,6 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
             errorMsg.isHidden = false
             errorTitle.isHidden = false
         }
-        
-       
-    
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -12,19 +12,20 @@ import AVKit
 
 class VideoSelectionTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIDocumentMenuDelegate {
 
-//    var videoController = VideoController()
+    //var videoController = VideoController()
     var videoModel = VideoModel()
-    var videos: PHFetchResult<PHAsset>!
-    @IBOutlet weak var videosLibrary: UILabel!
     var backgroundColor = ColorWeel()
+    var videos: PHFetchResult<PHAsset>!
     
     
-    
+    @IBOutlet weak var refreshButton: UIButton!
+    @IBOutlet weak var videosLibrary: UILabel!
     @IBOutlet weak var errorView: UIView!
     @IBOutlet weak var errorText: UILabel!
     @IBOutlet weak var errorTitlee: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
+    
     @IBAction func Import(_ sender: AnyObject) {
 //        NSArray *types = [(NSString*)kUTTypeImage,(NSString*)kUTTypeSpreadsheet,(NSString*)kUTTypePresentation,(NSString*)kUTTypeDatabase,(NSString*)kUTTypeFolder,(NSString*)kUTTypeZipArchive,(NSString*)kUTTypeVideo];
 
@@ -39,20 +40,30 @@ class VideoSelectionTableViewController: UIViewController, UITableViewDelegate, 
         self.tableView?.delegate = self
         self.tableView?.dataSource = self
         videosLibrary.textColor = UIColor.white
-        
-        self.tableView.reloadData()
+        refreshButton.isHidden = true
         tableView.contentInset.top = 20
         
         if(tableView.numberOfRows(inSection: 0) == 0){
             blurMainView()
         } else {
-            errorText.isHidden = true
-            errorTitlee.isHidden = true
+            errorView.isHidden = false
         }
 
-        
-    }
 
+        tableView.reloadData()
+    }
+    
+    @IBAction func refresh(_ sender: AnyObject) {
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        
+        
+        if(tableView.numberOfRows(inSection: 0) != 0){
+            errorView.isHidden = true
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -65,13 +76,9 @@ class VideoSelectionTableViewController: UIViewController, UITableViewDelegate, 
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        // #warning Incomplete implementation, return the number of row
         
-        if videoModel.getVideoAssets().count != 0{
-            errorView.isHidden = true
-        }
-        
-        return videoModel.getVideoAssets().count
+        return videoModel.getVideoAssetsCount()
     }
     
     func blurMainView(){
@@ -87,6 +94,7 @@ class VideoSelectionTableViewController: UIViewController, UITableViewDelegate, 
             
             errorText.isHidden = false
             errorTitlee.isHidden = false
+            refreshButton.isHidden = false
         }
     }
     
