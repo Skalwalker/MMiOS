@@ -37,7 +37,9 @@
                         <viewControllerLayoutGuide type="bottom" id="fMm-iY-Bkt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tao-zS-wjV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                   
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUx-aB-tEf">
@@ -147,7 +149,9 @@
                         <viewControllerLayoutGuide type="bottom" id="OAa-Jr-Gn0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="X9I-XL-UIs">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JaK-64-r2d" userLabel="TopView">
@@ -191,7 +195,9 @@
                         <viewControllerLayoutGuide type="bottom" id="yYG-zK-N4s"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rMz-Fn-bG4">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIu-KV-MoU">
@@ -230,7 +236,10 @@
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="xeq-Yo-V3K">
-                                    <rect key="frame" x="0.0" y="0.0" width="329" height="44"/>
+
+
+                                    <rect key="frame" x="0.0" y="0.0" width="415" height="44"/>
+
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Songs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvd-8x-NsB">
@@ -250,10 +259,12 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MusicCell" rowHeight="59" id="gO7-ha-z2P" customClass="Cell" customModule="MMiOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="329" height="59"/>
+
+                                        <rect key="frame" x="0.0" y="72" width="415" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gO7-ha-z2P" id="3Dm-Bn-apu">
-                                            <frame key="frameInset" width="329" height="58"/>
+                                            <frame key="frameInset" width="415" height="58.5"/>
+
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eEZ-rk-vwx">
@@ -503,13 +514,23 @@
                                             <action selector="Import:" destination="yp1-wV-eec" eventType="touchUpInside" id="8b4-1b-Ote"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ws-Yh-dsu">
+                                        <state key="normal" title="Stream">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="streamAction:" destination="yp1-wV-eec" eventType="touchUpInside" id="1HW-b3-NMH"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.2537992295" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="HWL-Lx-BR5" firstAttribute="centerY" secondItem="n7f-Jr-Idf" secondAttribute="centerY" constant="11.5" id="Dtc-fo-bJH"/>
+                                    <constraint firstItem="RN9-fM-KUv" firstAttribute="leading" secondItem="1ws-Yh-dsu" secondAttribute="trailing" constant="8" symbolic="YES" id="JDN-ep-dPa"/>
                                     <constraint firstAttribute="trailing" secondItem="RN9-fM-KUv" secondAttribute="trailing" constant="8" id="XdJ-eQ-ts1"/>
                                     <constraint firstItem="RN9-fM-KUv" firstAttribute="bottom" secondItem="n7f-Jr-Idf" secondAttribute="bottomMargin" id="cMD-1V-eYS"/>
                                     <constraint firstItem="HWL-Lx-BR5" firstAttribute="centerX" secondItem="n7f-Jr-Idf" secondAttribute="centerX" id="eWF-oJ-Com"/>
+                                    <constraint firstItem="1ws-Yh-dsu" firstAttribute="centerY" secondItem="RN9-fM-KUv" secondAttribute="centerY" id="rHW-6Z-OCw"/>
                                     <constraint firstAttribute="height" constant="60" id="vgR-0J-KxK"/>
                                 </constraints>
                             </view>
@@ -652,7 +673,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wm1-hO-IK9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xg8-aW-KKg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SJR-L6-GO1" userLabel="TopView">
@@ -693,15 +714,20 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="448" id="uyi-0z-l29"/>
                                 </constraints>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="UXL-g7-Npw">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="19"/>
+
+                                    <rect key="frame" x="0.0" y="0.0" width="406" height="19"/>
+
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="GenericCell" rowHeight="59" id="oqu-rE-T66" customClass="GenericCell" customModule="MMiOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="47" width="320" height="59"/>
+
+
+                                        <rect key="frame" x="0.0" y="47" width="406" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oqu-rE-T66" id="rNc-CQ-BOl">
-                                            <frame key="frameInset" width="320" height="58"/>
+                                            <frame key="frameInset" width="406" height="58.5"/>
+
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B8C-Zo-aP8">
@@ -855,7 +881,9 @@
                         <viewControllerLayoutGuide type="bottom" id="0G0-el-Nir"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Daz-Wn-Mc3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CqB-xO-O2u" userLabel="TopView">
@@ -1055,7 +1083,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Back" width="25" height="25"/>
+        <image name="Back" width="33" height="33"/>
         <image name="FastBackwards" width="100" height="100"/>
         <image name="FastFoward" width="100" height="100"/>
         <image name="Music" width="25" height="25"/>
