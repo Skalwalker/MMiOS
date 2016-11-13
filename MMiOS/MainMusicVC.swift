@@ -72,6 +72,8 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
         self.playingImageView.image = music?.artwork?.image(at: size)
         self.playingMusicName.text = music?.title
         
+        hideBottomView()
+        
         self.tableView.reloadData()
     }
     

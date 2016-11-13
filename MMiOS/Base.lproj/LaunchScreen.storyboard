@@ -27,14 +27,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Roadway to SS Presents:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5w8-JN-7et">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="196" id="pVk-ju-V3O"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright (c) 2016 Roadway to SS. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEf-7U-QdM">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="271" id="RXb-7x-bTw"/>
@@ -44,11 +36,19 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Roadway to SS Presents:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5w8-JN-7et">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="196" id="pVk-ju-V3O"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.078431372549019607" green="0.38039215686274508" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Ec3-np-ZLM" firstAttribute="top" secondItem="5w8-JN-7et" secondAttribute="bottom" constant="-8" id="GTH-aV-dxw"/>
-                            <constraint firstItem="5w8-JN-7et" firstAttribute="leading" secondItem="Ec3-np-ZLM" secondAttribute="leading" id="PWV-cQ-vGf"/>
+                            <constraint firstItem="Ec3-np-ZLM" firstAttribute="top" secondItem="5w8-JN-7et" secondAttribute="bottom" constant="-4.5" id="GTH-aV-dxw"/>
+                            <constraint firstItem="5w8-JN-7et" firstAttribute="leading" secondItem="Ec3-np-ZLM" secondAttribute="leading" constant="5" id="PWV-cQ-vGf"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="FEf-7U-QdM" secondAttribute="bottom" constant="20" id="XYc-Wt-xIH"/>
                             <constraint firstItem="Ec3-np-ZLM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hMi-Sk-eva"/>
                             <constraint firstItem="FEf-7U-QdM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="opW-9i-ffT"/>

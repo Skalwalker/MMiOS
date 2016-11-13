@@ -107,8 +107,12 @@ class LibrariesController: UIViewController, UITableViewDataSource, UITableViewD
         
         if passedSegue == "playlists"{
             query = musics.getPlayListQuery()
-//            cell.myLabel.text = item.items[0].title
-//            cell.myImage.image = item.representativeItem?.artwork?.image(at: size)
+            let playlists = query.collections?[indexPath.row].representativeItem
+           
+            cell.myLabel.text = "Playlist ".appending(String(((indexPath.row) + 1)))
+            
+            cell.myImage.image = playlists?.artwork?.image(at: size)
+            cell.songsCount.text = String((query.collections?[indexPath.row].count)!).appending(" Song(s)")
         }
         else if passedSegue == "albums"{
             query = musics.getAlbumQuery()
