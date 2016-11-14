@@ -73,6 +73,10 @@ class VideoModel{
         return retirnedImage
     }
     
+    
+    func refreshSelfVideos(){
+        self.phFetch()
+    }
     /*
      * Interface para get dos videos
      */

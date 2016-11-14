@@ -33,6 +33,12 @@ class AudioController{
         self.playing = true
     }
     
+    func checkForPlaying(){
+        if getPlaying() == true{
+            self.setPlaying()
+        }
+    }
+    
     func pausePlaying(){
         MusicPlayer.pause()
         playing = false
@@ -66,6 +72,7 @@ class AudioController{
     
     func playWithPlayList(musics : MPMediaItemCollection) {
         MusicPlayer.setQueue(with: musics)
+        self.setPlaying()
         self.play()
     }
     

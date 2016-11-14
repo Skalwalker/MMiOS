@@ -76,13 +76,13 @@ class LibrariesController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if passedSegue == "playlists"{
-            return musics.getPlaylistCount()
+            return musics.getPlaylistCount() + 1
         }
         else if passedSegue == "albums"{
-            return musics.getAlbumsCount()
+            return musics.getAlbumsCount() + 1
         }
         else if passedSegue == "artists"{
-            return musics.getArtistsCount()
+            return musics.getArtistsCount() + 1
         }
         return 1
     }
@@ -107,26 +107,52 @@ class LibrariesController: UIViewController, UITableViewDataSource, UITableViewD
         
         if passedSegue == "playlists"{
             query = musics.getPlayListQuery()
-            let playlists = query.collections?[indexPath.row].representativeItem
-           
-            cell.myLabel.text = "Playlist ".appending(String(((indexPath.row) + 1)))
+
+            print((query.collections?.count)!)
+            print(indexPath.row)
             
-            cell.myImage.image = playlists?.artwork?.image(at: size)
-            cell.songsCount.text = String((query.collections?[indexPath.row].count)!).appending(" Song(s)")
+            if (indexPath.row + 1) > (query.collections?.count)!  {
+                cell.myLabel.text = ""
+                cell.myImage.image = nil
+                cell.songsCount.text = ""
+            } else {
+                 let playlists = query.collections?[indexPath.row].representativeItem
+                
+                cell.myLabel.text = "Playlist ".appending(String(((indexPath.row) + 1)))
+                
+                cell.myImage.image = playlists?.artwork?.image(at: size)
+                cell.songsCount.text = String((query.collections?[indexPath.row].count)!).appending(" Song(s)")
+            }
         }
         else if passedSegue == "albums"{
             query = musics.getAlbumQuery()
-            let album = query.collections?[indexPath.row].representativeItem
-            cell.myLabel.text = album?.albumTitle
-            cell.myImage.image = album?.artwork?.image(at: size)
-            cell.songsCount.text = String((query.collections?[indexPath.row].count)!).appending(" Song(s)")
+            
+            if (indexPath.row + 1) > (query.collections?.count)!{
+                cell.myLabel.text = ""
+                cell.myImage.image = nil
+                cell.songsCount.text = ""
+            } else {
+                let album = query.collections?[indexPath.row].representativeItem
+                            
+                cell.myLabel.text = album?.albumTitle
+                cell.myImage.image = album?.artwork?.image(at: size)
+                cell.songsCount.text = String((query.collections?[indexPath.row].count)!).appending(" Song(s)")
+            }
         }
         else if passedSegue == "artists"{
             query = musics.getArtistQuery()
-            let artist = query.collections?[indexPath.row].representativeItem
-            cell.myLabel.text = artist?.artist
-            cell.myImage.image = artist?.artwork?.image(at: size)
-            cell.songsCount.text = String((query.collections?[indexPath.row].count)!).appending(" Song(s)")
+            if (indexPath.row + 1) > (query.collections?.count)!{
+                cell.myLabel.text = ""
+                cell.myImage.image = nil
+                cell.songsCount.text = ""
+            } else {
+                let artist = query.collections?[indexPath.row].representativeItem
+                
+                cell.myLabel.text = artist?.artist
+                cell.myImage.image = artist?.artwork?.image(at: size)
+                cell.songsCount.text = String((query.collections?[indexPath.row].count)!).appending(" Song(s)")
+
+            }
         }
         return cell
     }
@@ -180,15 +206,21 @@ class LibrariesController: UIViewController, UITableViewDataSource, UITableViewD
             query = musics.getArtistQuery()
         }
         
-        let loc = query.collectionSections![indexPath.section].range.location
-        controller.playWithPlayList(musics: query.collections![indexPath.row + loc])
         
-        let music = controller.itemNowPlaying()
-        let size = CGSize.init(width: 52.0, height: 52.0)
         
-        playingMusicName.text = music?.title
-        playingImageView.image = music?.artwork?.image(at: size)
-        hideBottomView()
+        if (indexPath.row + 1) < (query.collections?.count)!{
+            let loc = query.collectionSections![indexPath.section].range.location
+            
+            controller.playWithPlayList(musics: query.collections![indexPath.row + loc])
+            
+            let music = controller.itemNowPlaying()
+            let size = CGSize.init(width: 52.0, height: 52.0)
+            
+            playingMusicName.text = music?.title
+            playingImageView.image = music?.artwork?.image(at: size)
+            hideBottomView()
+
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

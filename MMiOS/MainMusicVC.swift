@@ -72,6 +72,7 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
         self.playingImageView.image = music?.artwork?.image(at: size)
         self.playingMusicName.text = music?.title
         
+        controller.checkForPlaying()
         hideBottomView()
         
         self.tableView.reloadData()
@@ -147,7 +148,7 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
         
         errorView.isHidden = true
         
-        return musics.getSongQueryCount()
+        return musics.getSongQueryCount() + 1
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -156,14 +157,25 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "MusicCell", for: indexPath) as! Cell
         let size = CGSize.init(width: 52.0, height: 52.0)
         
-        // Configure the cell...
-        cell.musicsLabel.text = self.musics.getSongsQuery().items?[indexPath.row].title
-        cell.albumImage.image = self.musics.getSongsQuery().items?[indexPath.row].artwork?.image(at: size)
-        cell.artistsLabel.text = self.musics.getSongsQuery().items?[indexPath.row].artist
-        cell.albumName = (self.musics.getAlbumQuery().items?[indexPath.row].albumArtist)!
+        
+        if (indexPath.row + 1) > (self.musics.getAlbumQuery().items?.count)!{
+            cell.musicsLabel.text = ""
+            cell.albumImage.image = nil
+            cell.artistsLabel.text = ""
+            cell.albumName = ""
+        } else {
+            cell.musicsLabel.text = self.musics.getSongsQuery().items?[indexPath.row].title
+            cell.albumImage.image = self.musics.getSongsQuery().items?[indexPath.row].artwork?.image(at: size)
+            cell.artistsLabel.text = self.musics.getSongsQuery().items?[indexPath.row].artist
+            cell.albumName = (self.musics.getAlbumQuery().items?[indexPath.row].albumArtist)!
+            
+           
+        }
         
         return cell
     }
@@ -172,13 +184,15 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = self.tableView.cellForRow(at: indexPath) as! Cell
         
-        
-        controller.playWithQueue(musics: musics.getSongsQuery(), musicsLabel: cell.musicsLabel.text!)
-        
-        playingMusicName.text = cell.musicsLabel.text
-        playingImageView.image = cell.albumImage.image
-        
-        hideBottomView()
+        if (indexPath.row + 1) < (self.musics.getAlbumQuery().items?.count)!{
+            controller.playWithQueue(musics: musics.getSongsQuery(), musicsLabel: cell.musicsLabel.text!)
+            
+            playingMusicName.text = cell.musicsLabel.text
+            playingImageView.image = cell.albumImage.image
+            
+            hideBottomView()
+        }
+     
     }
 
     

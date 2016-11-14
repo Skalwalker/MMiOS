@@ -90,10 +90,13 @@ class VideoSelectionTableViewController: UIViewController, UITableViewDelegate, 
     
     @IBAction func refresh(_ sender: AnyObject) {
         
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+        videoModel.refreshSelfVideos()
         
+        
+        self.tableView.reloadData()
+        
+        
+        print(videoModel.getVideoAssetsCount())
         
         if(tableView.numberOfRows(inSection: 0) != 0){
             errorView.isHidden = true
