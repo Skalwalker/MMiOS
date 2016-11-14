@@ -253,7 +253,7 @@
                                         <rect key="frame" x="0.0" y="72" width="329" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gO7-ha-z2P" id="3Dm-Bn-apu">
-                                            <frame key="frameInset" width="329" height="58"/>
+                                            <frame key="frameInset" width="329" height="58.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eEZ-rk-vwx">
@@ -485,6 +485,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S42-OY-axE">
+                                <subviews>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXm-UB-Yy1">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="2Ut-Ci-TU4"/>
+                                            <constraint firstAttribute="height" constant="88" id="Jnq-bo-t1h"/>
+                                        </constraints>
+                                        <string key="text">You have nothing to display. Maybe permissions for this information is not yet allowed, you can change that on your phone settings.</string>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.26000000000000001" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Content Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4c-Ri-BZU">
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hS4-gA-h3U">
+                                        <color key="backgroundColor" white="1" alpha="0.20042913732394366" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="JVN-Vh-API"/>
+                                            <constraint firstAttribute="width" constant="75" id="Y6r-o2-Y4E"/>
+                                        </constraints>
+                                        <state key="normal" title="Refresh">
+                                            <color key="titleColor" white="1" alpha="0.24535101232394366" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="refresh:" destination="yp1-wV-eec" eventType="touchUpInside" id="RfV-PZ-sag"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="f4c-Ri-BZU" firstAttribute="centerX" secondItem="uXm-UB-Yy1" secondAttribute="centerX" id="0FM-iv-X4e"/>
+                                    <constraint firstItem="hS4-gA-h3U" firstAttribute="bottom" secondItem="uXm-UB-Yy1" secondAttribute="bottom" constant="42" id="8w8-i5-3i6"/>
+                                    <constraint firstItem="hS4-gA-h3U" firstAttribute="centerX" secondItem="uXm-UB-Yy1" secondAttribute="centerX" id="GVs-Sd-ZOn"/>
+                                    <constraint firstItem="uXm-UB-Yy1" firstAttribute="centerY" secondItem="S42-OY-axE" secondAttribute="centerY" id="XPN-Zt-ZVA"/>
+                                    <constraint firstItem="f4c-Ri-BZU" firstAttribute="baseline" secondItem="uXm-UB-Yy1" secondAttribute="baseline" constant="-85" id="YVb-dZ-tls"/>
+                                    <constraint firstItem="uXm-UB-Yy1" firstAttribute="centerX" secondItem="S42-OY-axE" secondAttribute="centerX" id="cLe-Sr-HDH"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n7f-Jr-Idf" userLabel="TopView">
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Library" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWL-Lx-BR5" userLabel="Musics Library Label">
@@ -529,11 +569,11 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="CDR-t2-WtN"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="videoCell" rowHeight="106" id="ohC-KL-FVP" customClass="VideoTableViewCell" customModule="MMiOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="videoCell" rowHeight="106" id="ohC-KL-FVP" customClass="VideoTableViewCell" customModule="MMiOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="328" height="106"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ohC-KL-FVP" id="GLd-w1-QEo">
-                                            <frame key="frameInset" width="328" height="105"/>
+                                            <frame key="frameInset" width="328" height="105.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kWM-4v-vqt">
@@ -583,46 +623,6 @@
                                     <outlet property="delegate" destination="yp1-wV-eec" id="8Vo-Or-Kbt"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S42-OY-axE">
-                                <subviews>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXm-UB-Yy1">
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="280" id="2Ut-Ci-TU4"/>
-                                            <constraint firstAttribute="height" constant="88" id="Jnq-bo-t1h"/>
-                                        </constraints>
-                                        <string key="text">You have nothing to display. Maybe permissions for this information is not yet allowed, you can change that on your phone settings.</string>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.26000000000000001" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Content Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4c-Ri-BZU">
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hS4-gA-h3U">
-                                        <color key="backgroundColor" white="1" alpha="0.20042913732394366" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="JVN-Vh-API"/>
-                                            <constraint firstAttribute="width" constant="75" id="Y6r-o2-Y4E"/>
-                                        </constraints>
-                                        <state key="normal" title="Refresh">
-                                            <color key="titleColor" white="1" alpha="0.24535101232394366" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="refresh:" destination="yp1-wV-eec" eventType="touchUpInside" id="RfV-PZ-sag"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="f4c-Ri-BZU" firstAttribute="centerX" secondItem="uXm-UB-Yy1" secondAttribute="centerX" id="0FM-iv-X4e"/>
-                                    <constraint firstItem="hS4-gA-h3U" firstAttribute="bottom" secondItem="uXm-UB-Yy1" secondAttribute="bottom" constant="42" id="8w8-i5-3i6"/>
-                                    <constraint firstItem="hS4-gA-h3U" firstAttribute="centerX" secondItem="uXm-UB-Yy1" secondAttribute="centerX" id="GVs-Sd-ZOn"/>
-                                    <constraint firstItem="uXm-UB-Yy1" firstAttribute="centerY" secondItem="S42-OY-axE" secondAttribute="centerY" id="XPN-Zt-ZVA"/>
-                                    <constraint firstItem="f4c-Ri-BZU" firstAttribute="baseline" secondItem="uXm-UB-Yy1" secondAttribute="baseline" constant="-85" id="YVb-dZ-tls"/>
-                                    <constraint firstItem="uXm-UB-Yy1" firstAttribute="centerX" secondItem="S42-OY-axE" secondAttribute="centerX" id="cLe-Sr-HDH"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -711,7 +711,7 @@
                                         <rect key="frame" x="0.0" y="47" width="320" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oqu-rE-T66" id="rNc-CQ-BOl">
-                                            <frame key="frameInset" width="320" height="58"/>
+                                            <frame key="frameInset" width="320" height="58.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B8C-Zo-aP8">
