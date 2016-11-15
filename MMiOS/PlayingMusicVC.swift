@@ -28,7 +28,8 @@ class PlayingMusicVC: UIViewController{
     var passedMusicName: String = ""
     var passedImage: UIImage = #imageLiteral(resourceName: "mzi.zdsarhql.600x600-75")
     
-    @IBOutlet weak var Volume: UISlider!
+
+    @IBOutlet weak var Volume: MPVolumeView!
     
     let backColor = ColorWeel()
     let control = AudioController()
@@ -145,9 +146,9 @@ class PlayingMusicVC: UIViewController{
     }
     
     
-    @IBAction func changeVolume(_ sender: AnyObject) {
-        print(Volume.value)
-    }
+    //@IBAction func changeVolume(_ sender: AnyObject) {
+    //    print(Volume.value)
+    //}
     
     
     func wraperView(){
