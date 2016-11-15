@@ -15,6 +15,7 @@ class MusicsModel{
     private let artistsQuery: MPMediaQuery
     private let songsQuery: MPMediaQuery
     private let playlistsQuery: MPMediaQuery
+    private let musicQuery: MPMediaQuery
     
     init(){
         self.albunsQuery = MPMediaQuery.albums()
@@ -23,11 +24,31 @@ class MusicsModel{
         self.artistsQuery.groupingType = MPMediaGrouping.artist
         self.songsQuery = MPMediaQuery.songs()
         self.playlistsQuery = MPMediaQuery.playlists()
+        self.musicQuery = MPMediaQuery.songs()
     }
     
     func getSongsQuery() -> MPMediaQuery{
         return songsQuery
     }
+    
+    func getMusicQuery() -> MPMediaQuery{
+        return musicQuery
+    }
+
+    func setMusicQuery(music : String){
+        
+        if (musicQuery.filterPredicates?.count)! > 0{
+            for fpredicate in musicQuery.filterPredicates!{
+                musicQuery.removeFilterPredicate(fpredicate)
+            }
+            
+        }
+        
+        let predicate = MPMediaPropertyPredicate.init(value: music, forProperty: "title")
+        musicQuery.addFilterPredicate(predicate);
+        
+    }
+
     
     func getSong() -> MPMediaItem{
         return (songsQuery.items?.first)!
