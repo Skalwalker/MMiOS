@@ -229,7 +229,7 @@
                                 </constraints>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="xeq-Yo-V3K">
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="xeq-Yo-V3K">
                                     <rect key="frame" x="0.0" y="0.0" width="384" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -249,7 +249,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MusicCell" rowHeight="59" id="gO7-ha-z2P" customClass="Cell" customModule="MMiOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MusicCell" rowHeight="59" id="gO7-ha-z2P" customClass="Cell" customModule="MMiOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="384" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gO7-ha-z2P" id="3Dm-Bn-apu">
@@ -569,11 +569,11 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="CDR-t2-WtN"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="videoCell" rowHeight="106" id="ohC-KL-FVP" customClass="VideoTableViewCell" customModule="MMiOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="1000" height="106"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="videoCell" rowHeight="106" id="ohC-KL-FVP" customClass="VideoTableViewCell" customModule="MMiOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="383" height="106"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ohC-KL-FVP" id="GLd-w1-QEo">
-                                            <frame key="frameInset" width="1000" height="106"/>
+                                            <frame key="frameInset" width="383" height="106"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kWM-4v-vqt">
@@ -702,16 +702,16 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="Tn9-cs-PD0"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="448" id="uyi-0z-l29"/>
                                 </constraints>
-                                <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="UXL-g7-Npw">
-                                    <rect key="frame" x="0.0" y="0.0" width="1000" height="19"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="UXL-g7-Npw">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="19"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="GenericCell" rowHeight="59" id="oqu-rE-T66" customClass="GenericCell" customModule="MMiOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="47" width="1000" height="59"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="GenericCell" rowHeight="59" id="oqu-rE-T66" customClass="GenericCell" customModule="MMiOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="47" width="375" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oqu-rE-T66" id="rNc-CQ-BOl">
-                                            <frame key="frameInset" width="1000" height="59"/>
+                                            <frame key="frameInset" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B8C-Zo-aP8">

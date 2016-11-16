@@ -46,7 +46,7 @@ class PlayingMusicVC: UIViewController{
         
         setFontSizes()
         setColors()
-       
+        wraperView()
         //Volume.value = reproductor.volume
     
       
@@ -152,20 +152,11 @@ class PlayingMusicVC: UIViewController{
     
     
     func wraperView(){
-        var volumeView : MPVolumeView
+        let wrapperView = UIView(frame: Volume.bounds)
+        self.view.backgroundColor = UIColor.clear;
+        self.view.addSubview(wrapperView)
         
-        volumeView = MPVolumeView(frame : Volume.bounds)
-        volumeView.addSubview(Volume)
-        
-        var slider = UISlider()
-        for subview in volumeView.subviews {
-            if subview.isKind(of: UISlider.self) {
-                slider = subview as! UISlider
-                slider.isContinuous = false
-                (subview as! UISlider).value = AVAudioSession.sharedInstance().outputVolume
-            }
-        }
-        
+        wrapperView.addSubview(Volume)
     }
  
 }
