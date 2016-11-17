@@ -28,7 +28,8 @@ class PlayingMusicVC: UIViewController{
     var passedMusicName: String = ""
     var passedImage: UIImage = #imageLiteral(resourceName: "mzi.zdsarhql.600x600-75")
     
-    @IBOutlet weak var Volume: UISlider!
+
+    @IBOutlet weak var Volume: MPVolumeView!
     
     let backColor = ColorWeel()
     let control = AudioController()
@@ -45,7 +46,7 @@ class PlayingMusicVC: UIViewController{
         
         setFontSizes()
         setColors()
-       
+        wraperView()
         //Volume.value = reproductor.volume
     
       
@@ -145,26 +146,17 @@ class PlayingMusicVC: UIViewController{
     }
     
     
-    @IBAction func changeVolume(_ sender: AnyObject) {
-        print(Volume.value)
-    }
+    //@IBAction func changeVolume(_ sender: AnyObject) {
+    //    print(Volume.value)
+    //}
     
     
     func wraperView(){
-        var volumeView : MPVolumeView
+        let wrapperView = UIView(frame: Volume.bounds)
+        self.view.backgroundColor = UIColor.clear;
+        self.view.addSubview(wrapperView)
         
-        volumeView = MPVolumeView(frame : Volume.bounds)
-        volumeView.addSubview(Volume)
-        
-        var slider = UISlider()
-        for subview in volumeView.subviews {
-            if subview.isKind(of: UISlider.self) {
-                slider = subview as! UISlider
-                slider.isContinuous = false
-                (subview as! UISlider).value = AVAudioSession.sharedInstance().outputVolume
-            }
-        }
-        
+        wrapperView.addSubview(Volume)
     }
  
 }
