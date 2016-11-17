@@ -8,11 +8,16 @@
 
 import UIKit
 import Photos
+private let sharedModel = VideoModel()
 
 
 class VideoModel{
     var thumbnails = [UIImage]()
     var videos = [AVAsset]()
+    //singleton
+    class var sharedInstance: VideoModel {
+        return sharedModel
+    }
 
     enum ModelError: Error {
         case generateCopy

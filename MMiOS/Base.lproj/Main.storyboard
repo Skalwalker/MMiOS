@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TDw-KN-Cgf">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TDw-KN-Cgf">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -253,7 +253,7 @@
                                         <rect key="frame" x="0.0" y="72" width="384" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gO7-ha-z2P" id="3Dm-Bn-apu">
-                                            <frame key="frameInset" width="384" height="59"/>
+                                            <frame key="frameInset" width="384" height="58.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eEZ-rk-vwx">
@@ -554,12 +554,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.2537992295" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="RN9-fM-KUv" secondAttribute="trailing" constant="8" id="3cV-jL-gGo"/>
                                     <constraint firstItem="HWL-Lx-BR5" firstAttribute="centerY" secondItem="n7f-Jr-Idf" secondAttribute="centerY" constant="11.5" id="Dtc-fo-bJH"/>
-                                    <constraint firstItem="RN9-fM-KUv" firstAttribute="leading" secondItem="1ws-Yh-dsu" secondAttribute="trailing" constant="8" symbolic="YES" id="JDN-ep-dPa"/>
-                                    <constraint firstAttribute="trailing" secondItem="RN9-fM-KUv" secondAttribute="trailing" constant="8" id="XdJ-eQ-ts1"/>
-                                    <constraint firstItem="RN9-fM-KUv" firstAttribute="bottom" secondItem="n7f-Jr-Idf" secondAttribute="bottomMargin" id="cMD-1V-eYS"/>
+                                    <constraint firstAttribute="bottom" secondItem="RN9-fM-KUv" secondAttribute="bottom" constant="15" id="KLF-aU-uHx"/>
+                                    <constraint firstItem="1ws-Yh-dsu" firstAttribute="leading" secondItem="n7f-Jr-Idf" secondAttribute="leading" constant="8" id="PDZ-fJ-Kc6"/>
+                                    <constraint firstAttribute="bottom" secondItem="1ws-Yh-dsu" secondAttribute="bottom" constant="15" id="aAj-Ph-rBp"/>
                                     <constraint firstItem="HWL-Lx-BR5" firstAttribute="centerX" secondItem="n7f-Jr-Idf" secondAttribute="centerX" id="eWF-oJ-Com"/>
-                                    <constraint firstItem="1ws-Yh-dsu" firstAttribute="centerY" secondItem="RN9-fM-KUv" secondAttribute="centerY" id="rHW-6Z-OCw"/>
                                     <constraint firstAttribute="height" constant="60" id="vgR-0J-KxK"/>
                                 </constraints>
                             </view>
@@ -711,7 +711,7 @@
                                         <rect key="frame" x="0.0" y="47" width="375" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oqu-rE-T66" id="rNc-CQ-BOl">
-                                            <frame key="frameInset" width="375" height="59"/>
+                                            <frame key="frameInset" width="375" height="58.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B8C-Zo-aP8">
