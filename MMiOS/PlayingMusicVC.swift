@@ -54,6 +54,9 @@ class PlayingMusicVC: UIViewController{
         artistName.text = passedArtistName
         albumName.text = passedAlbumName
         albumImage.image = passedImage
+        
+        albumImage.layer.cornerRadius = 10.0
+        albumImage.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
 
@@ -153,10 +156,12 @@ class PlayingMusicVC: UIViewController{
     
     func wraperView(){
         let wrapperView = UIView(frame: Volume.bounds)
-        self.view.backgroundColor = UIColor.clear;
+        wrapperView.backgroundColor = UIColor.clear;
         self.view.addSubview(wrapperView)
-        
+        wrapperView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.view.sendSubview(toBack: wrapperView)
         wrapperView.addSubview(Volume)
+        
     }
  
 }

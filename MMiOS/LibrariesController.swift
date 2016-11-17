@@ -208,7 +208,7 @@ class LibrariesController: UIViewController, UITableViewDataSource, UITableViewD
         
         
         
-        if (indexPath.row + 1) < (query.collections?.count)!{
+        if (indexPath.row + 1) <= (query.collections?.count)!{
             let loc = query.collectionSections![indexPath.section].range.location
             
             controller.playWithPlayList(musics: query.collections![indexPath.row + loc])

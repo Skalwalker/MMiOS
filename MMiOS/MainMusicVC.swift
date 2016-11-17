@@ -184,7 +184,7 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = self.tableView.cellForRow(at: indexPath) as! Cell
         
-        if (indexPath.row + 1) < (self.musics.getAlbumQuery().items?.count)!{
+        if (indexPath.row + 1) <= (self.musics.getAlbumQuery().items?.count)!{
             controller.playWithQueue(musics: musics.getSongsQuery(), musicsLabel: cell.musicsLabel.text!)
             
             playingMusicName.text = cell.musicsLabel.text
