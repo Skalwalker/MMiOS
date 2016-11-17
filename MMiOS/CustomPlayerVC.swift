@@ -8,31 +8,38 @@
 
 import UIKit
 import AVKit
+import Photos
 
 class CustomPlayerVC: AVPlayerViewController {
+    
 
-    lazy var topView = UIView(frame: UIScreen.main.bounds)
+    init(mUrl : URL) {
+        super.init(nibName: nil, bundle: nil)
+        let player = AVPlayer.init(url: mUrl)
+        self.player = player
+    }
+    
+    init(indexPath : IndexPath) {
+        super.init(nibName: nil, bundle: nil)
+        let avAsset = VideoModel.sharedInstance.getVideoAssets()[indexPath.row]
+        let myplayerItem = AVPlayerItem.init(asset: avAsset)
+        let player = AVPlayer.init(playerItem: myplayerItem)
+        self.player = player
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        topView.backgroundColor = UIColor.clear
-        self.topView.isHidden = true
-        self.view.addSubview(topView)
-        self.view.bringSubview(toFront: topView)
-        topView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(handleTap)))
-        self.showsPlaybackControls = false
+        self.player?.play()
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func handleTap() {
-        
-        // Show the control
-        self.showsPlaybackControls = true
-        
     }
 
     /*

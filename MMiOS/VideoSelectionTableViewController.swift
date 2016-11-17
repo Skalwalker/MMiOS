@@ -10,12 +10,13 @@ import UIKit
 import Photos
 import AVKit
 
-class VideoSelectionTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIDocumentMenuDelegate {
+class VideoSelectionTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIDocumentMenuDelegate, UIDocumentPickerDelegate {
 
     //var videoController = VideoController()
-    var videoModel = VideoModel()
     var backgroundColor = ColorWeel()
     var videos: PHFetchResult<PHAsset>!
+    var videoModel = VideoModel.sharedInstance
+
     
     
     @IBOutlet weak var refreshButton: UIButton!
@@ -23,42 +24,11 @@ class VideoSelectionTableViewController: UIViewController, UITableViewDelegate, 
     @IBOutlet weak var errorView: UIView!
     @IBOutlet weak var errorText: UILabel!
     @IBOutlet weak var errorTitlee: UILabel!
-    
     @IBOutlet weak var tableView: UITableView!
-
     
     @IBAction func streamAction(_ sender: AnyObject) {
-        let alertController = UIAlertController(title: "Informe a URL da streaming", message: "", preferredStyle: .alert)
-        //cancel action
-        let cancelAction = UIAlertAction.init(title: "Cancelar", style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        
-        
-        //Playaction
-        let streamURLaction = UIAlertAction(title:"Play", style: .default) { (_) in
-            let urlTextField = alertController.textFields![0] as UITextField
-            let player = AVPlayer.init(url: URL.init(string: urlTextField.text!)!)
-            let playerViewController = CustomPlayerVC()
-            
-            playerViewController.player = player
-            self.present(playerViewController, animated: true, completion: {
-                playerViewController.player?.play()
-            })
-        }
-        streamURLaction.isEnabled = false
+        StreamingFeature.init(viewController: self).importFunc()
 
-        //adding textfield
-        alertController.addTextField { (textfield : UITextField) in
-            textfield.placeholder = "http//...."
-            NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textfield, queue: OperationQueue.main) { (notification) in
-                //habilitando o streaming action
-                streamURLaction.isEnabled = textfield.text != ""
-            }
-        }
-        
-        alertController.addAction(streamURLaction)
-        self.present(alertController, animated: true, completion: nil)
-        
     }
 
     @IBAction func Import(_ sender: AnyObject) {
@@ -90,13 +60,13 @@ class VideoSelectionTableViewController: UIViewController, UITableViewDelegate, 
     
     @IBAction func refresh(_ sender: AnyObject) {
         
-        videoModel.refreshSelfVideos()
+        VideoModel.sharedInstance.refreshSelfVideos()
         
         
         self.tableView.reloadData()
         
         
-        print(videoModel.getVideoAssetsCount())
+        print(VideoModel.sharedInstance.getVideoAssetsCount())
         
         if(tableView.numberOfRows(inSection: 0) != 0){
             errorView.isHidden = true
@@ -116,7 +86,7 @@ class VideoSelectionTableViewController: UIViewController, UITableViewDelegate, 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of row
         
-        return videoModel.getVideoAssetsCount()
+        return VideoModel.sharedInstance.getVideoAssetsCount()
     }
     
     func blurMainView(){
@@ -139,11 +109,11 @@ class VideoSelectionTableViewController: UIViewController, UITableViewDelegate, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: VideoTableViewCell = tableView.dequeueReusableCell(withIdentifier: "videoCell", for: indexPath) as! VideoTableViewCell
         //Thumbnail image
-        let image = videoModel.getThumbnails()[indexPath.row]
+        let image = VideoModel.sharedInstance.getThumbnails()[indexPath.row]
         cell.videosThumbnail.image = image
         
         //Title label
-        let creationdate = videoModel.getVideoAssets()[indexPath.row].creationDate?.dateValue
+        let creationdate = VideoModel.sharedInstance.getVideoAssets()[indexPath.row].creationDate?.dateValue
         if creationdate == nil{
            print("ayy")
             cell.videoTitle.text = "This is default."
@@ -155,7 +125,7 @@ class VideoSelectionTableViewController: UIViewController, UITableViewDelegate, 
         }
     
         //Duration label
-        let durationInSeconds = ceil(videoModel.getVideoAssets()[indexPath.row].duration.seconds)
+        let durationInSeconds = ceil(VideoModel.sharedInstance.getVideoAssets()[indexPath.row].duration.seconds)
         cell.videoDuration.text = stringFromTimeInterval(interval: durationInSeconds)
         
         
@@ -173,14 +143,7 @@ class VideoSelectionTableViewController: UIViewController, UITableViewDelegate, 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //deselect
         tableView.deselectRow(at: indexPath, animated: true)
-
-        
-        let avAsset = videoModel.getVideoAssets()[indexPath.row]
-        let myplayerItem = AVPlayerItem.init(asset: avAsset)
-        let player = AVPlayer.init(playerItem: myplayerItem)
-        let playerViewController = AVPlayerViewController()
-        
-        playerViewController.player = player
+        let playerViewController = CustomPlayerVC.init(indexPath: indexPath)
         self.present(playerViewController, animated: true, completion: {
             playerViewController.player?.play()
         })
@@ -188,9 +151,13 @@ class VideoSelectionTableViewController: UIViewController, UITableViewDelegate, 
     
     //document menu protocol
     func documentMenu(_ documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
+        documentPicker.delegate = self
+        documentPicker.modalPresentationStyle = .formSheet
+        self.present(documentPicker, animated: true, completion: nil)
     }
-    
-    func documentMenuWasCancelled(_ documentMenu: UIDocumentMenuViewController) {
-    
+    //document picker protocol
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
+        let playerViewController = CustomPlayerVC.init(mUrl: url)
+        self.present(playerViewController, animated: true, completion: nil)
     }
 }
