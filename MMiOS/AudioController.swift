@@ -54,11 +54,13 @@ class AudioController{
     
         model.setMusicQuery(music: musicsLabel)
         
-        MusicPlayer.setQueue(with: model.getMusicQuery());
+        MusicPlayer.setQueue(with: model.getMusicQuery())
         
-        MusicPlayer.prepareToPlay();
+        MusicPlayer.prepareToPlay()
         
         self.play()
+        
+        MusicPlayer.setQueue(with: model.getSongsQuery())
     }
     
     
