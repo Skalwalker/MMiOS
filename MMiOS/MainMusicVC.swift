@@ -38,6 +38,7 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
         view.backgroundColor = backColor.fixedColor()
         setColors()
         hideBottomView()
+        setPausePlay()
         
         self.tableView?.delegate = self
         self.tableView?.dataSource = self
@@ -73,7 +74,7 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
         self.playingMusicName.text = music?.title
         
         controller.checkForPlaying()
-        hideBottomView()
+        setPausePlay()
         
         self.tableView.reloadData()
     }
@@ -91,6 +92,7 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
             self.bottomView.isHidden = true
             self.buttonToPlaying.isEnabled = false
         } else {
+            setPausePlay()
             self.bottomView.isHidden = false
             self.buttonToPlaying.isEnabled = true
         }
@@ -195,6 +197,14 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
      
     }
 
+    func setPausePlay(){
+        if(controller.getLocalPlaying()){
+            playOrPause.setImage(#imageLiteral(resourceName: "Pause"), for: .normal)
+        } else {
+            playOrPause.setImage(#imageLiteral(resourceName: "Play"), for: .normal)
+        }
+    }
+    
     
     @IBAction func playOrPause(_ sender: AnyObject) {
         if(controller.getPlaying()){

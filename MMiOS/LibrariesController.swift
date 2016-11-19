@@ -64,6 +64,7 @@ class LibrariesController: UIViewController, UITableViewDataSource, UITableViewD
             self.bottomView.isHidden = true
             self.buttonToPlaying.isEnabled = false
         } else {
+            setPausePlay()
             self.bottomView.isHidden = false
             self.buttonToPlaying.isEnabled = true
         }
@@ -220,6 +221,14 @@ class LibrariesController: UIViewController, UITableViewDataSource, UITableViewD
             playingImageView.image = music?.artwork?.image(at: size)
             hideBottomView()
 
+        }
+    }
+    
+    func setPausePlay(){
+        if(controller.getPlaying()){
+            playOrPause.setImage(#imageLiteral(resourceName: "Pause"), for: .normal)
+        } else {
+            playOrPause.setImage(#imageLiteral(resourceName: "Play"), for: .normal)
         }
     }
     

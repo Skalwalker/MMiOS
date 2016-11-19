@@ -65,6 +65,11 @@ class PlayingMusicVC: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setPausePlay()
+    }
+    
+    
     func setColors(){
         
         let buttons: [UIButton: String] = [playButton: "Play",
@@ -114,14 +119,37 @@ class PlayingMusicVC: UIViewController{
         }
     }
     
+    func setPausePlay(){
+        if(control.getPlaying()){
+            let image = UIImage(named: "Pause")?.withRenderingMode(.alwaysTemplate)
+            playButton.setImage(image, for: .normal)
+            playButton.tintColor = UIColor.white
+        } else {
+            let image = UIImage(named: "Play")?.withRenderingMode(.alwaysTemplate)
+            playButton.setImage(image, for: .normal)
+            playButton.tintColor = UIColor.white
+        }
+        
+        
+
+        
+    }
+    
     @IBAction func playMusic(_ sender: AnyObject) {
         if control.getPlaying(){
             control.pausePlaying()
-            playButton.imageView?.image = #imageLiteral(resourceName: "Play")
+            let image = UIImage(named: "Play")?.withRenderingMode(.alwaysTemplate)
+            playButton.setImage(image, for: .normal)
+            playButton.tintColor = UIColor.white
         } else {
             control.play()
-            playButton.imageView?.image = #imageLiteral(resourceName: "Pause")
+            let image = UIImage(named: "Pause")?.withRenderingMode(.alwaysTemplate)
+            playButton.setImage(image, for: .normal)
+            playButton.tintColor = UIColor.white
+
         }
+        
+        
     }
     
     @IBAction func lastMusic(_ sender: AnyObject) {

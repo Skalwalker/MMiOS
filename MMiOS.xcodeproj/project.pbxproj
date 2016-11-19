@@ -15,7 +15,6 @@
 		3DF8B1B51DB1581300A54D70 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF8B1B41DB1581300A54D70 /* VideoModel.swift */; };
 		880703671D9ED4330056208E /* ColorWeel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880703661D9ED4330056208E /* ColorWeel.swift */; };
 		880703721D9EE8850056208E /* AboutMeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880703711D9EE8850056208E /* AboutMeVC.swift */; };
-		880703751D9EE9320056208E /* ConfigVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880703741D9EE9320056208E /* ConfigVC.swift */; };
 		881E93251DAEF1EA003BF71C /* MusicsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881E93241DAEF1EA003BF71C /* MusicsModel.swift */; };
 		88227C681DA687F200F3CD79 /* PlayingMusicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88227C671DA687F200F3CD79 /* PlayingMusicVC.swift */; };
 		88386EF91DD66B300026C78A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88386EF81DD66B300026C78A /* CloudKit.framework */; };
@@ -59,7 +58,6 @@
 		3DF8B1B41DB1581300A54D70 /* VideoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
 		880703661D9ED4330056208E /* ColorWeel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorWeel.swift; sourceTree = "<group>"; };
 		880703711D9EE8850056208E /* AboutMeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutMeVC.swift; sourceTree = "<group>"; };
-		880703741D9EE9320056208E /* ConfigVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigVC.swift; sourceTree = "<group>"; };
 		881E93241DAEF1EA003BF71C /* MusicsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicsModel.swift; sourceTree = "<group>"; };
 		88227C671DA687F200F3CD79 /* PlayingMusicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayingMusicVC.swift; sourceTree = "<group>"; };
 		88386EF81DD66B300026C78A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -170,14 +168,6 @@
 			name = AboutMe;
 			sourceTree = "<group>";
 		};
-		880703731D9EE8DA0056208E /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				880703741D9EE9320056208E /* ConfigVC.swift */,
-			);
-			name = Config;
-			sourceTree = "<group>";
-		};
 		88386EF71DD66B300026C78A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,7 +204,6 @@
 				884A219F1D7B93CA0017EB42 /* Main */,
 				884A219D1D7B93A30017EB42 /* Audio */,
 				884A219C1D7B93860017EB42 /* Video */,
-				880703731D9EE8DA0056208E /* Config */,
 				8807036E1D9EE7CD0056208E /* AboutMe */,
 				884A21751D7B93620017EB42 /* Assets.xcassets */,
 				884A21771D7B93620017EB42 /* LaunchScreen.storyboard */,
@@ -425,7 +414,6 @@
 				3D91C5031DDCDB8B00291562 /* StreamingFeature.swift in Sources */,
 				3DE69E7A1D9CAB3500A590E5 /* VideoSelectionTableViewController.swift in Sources */,
 				04146F0C1DD23F78003325F8 /* GenericCell.swift in Sources */,
-				880703751D9EE9320056208E /* ConfigVC.swift in Sources */,
 				884A21741D7B93620017EB42 /* MMiOS.xcdatamodeld in Sources */,
 				8890F4011DD208E50096869E /* LibrariesController.swift in Sources */,
 				3DF8B1B51DB1581300A54D70 /* VideoModel.swift in Sources */,
