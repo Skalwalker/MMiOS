@@ -16,9 +16,11 @@ class AudioController{
     let MusicPlayer = MPMusicPlayerController()
     
     private var playing: Bool
+    private var lastMusic : String
     
     init(){
         self.playing = MusicPlayer.playbackState == .playing
+        self.lastMusic = (MusicPlayer.nowPlayingItem?.title)!
     }
 
     func getPlaying() -> Bool{
@@ -77,11 +79,13 @@ class AudioController{
     }
     
     func skipMusic(){
+        lastMusic = (MusicPlayer.nowPlayingItem?.title)!
         MusicPlayer.skipToNextItem()
     }
     
     func returnMusic(){
-        MusicPlayer.skipToPreviousItem()
+        //MusicPlayer.skipToPreviousItem()
+        self.playWithQueue(musics: model.getSongsQuery(), musicsLabel: (MusicPlayer.nowPlayingItem?.title)!)
     }
     
     func shuffleMode(){
