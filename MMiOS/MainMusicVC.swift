@@ -38,6 +38,7 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
         view.backgroundColor = backColor.fixedColor()
         setColors()
         hideBottomView()
+        setPausePlay()
         
         self.tableView?.delegate = self
         self.tableView?.dataSource = self
@@ -73,7 +74,7 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
         self.playingMusicName.text = music?.title
         
         controller.checkForPlaying()
-        hideBottomView()
+        setPausePlay()
         
         self.tableView.reloadData()
     }
@@ -91,6 +92,7 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
             self.bottomView.isHidden = true
             self.buttonToPlaying.isEnabled = false
         } else {
+            setPausePlay()
             self.bottomView.isHidden = false
             self.buttonToPlaying.isEnabled = true
         }
@@ -142,13 +144,16 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if musics.getSongQueryCount() == 0{
-            return 0;
-        }
+//        if musics.getSongQueryCount() == 0{
+//            return 0;
+//        }
+//        
+//        errorView.isHidden = true
+//    
+//        return musics.getSongQueryCount() + 1
         
-        errorView.isHidden = true
         
-        return musics.getSongQueryCount() + 1
+        return 7
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -157,12 +162,18 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let artistArray = ["Lady Gaga", "The Pretty Reckless", "Coldplay", "age the Elephant", "Pearl Jam", "Lady Gaga", "Pearl Jam"]
+//        let musicArray = ["A-Yo", "Absolution", "Adventure of a Lifetime", "Ain't no Rest for the Wicked", "Alive", "Angel Down", "Black"]
+//        let albumImgeArray = [#imageLiteral(resourceName: "joanne"), #imageLiteral(resourceName: "gth"), #imageLiteral(resourceName: "cp"), #imageLiteral(resourceName: "mzi.zdsarhql.600x600-75"), #imageLiteral(resourceName: "ten"), #imageLiteral(resourceName: "joanne"), #imageLiteral(resourceName: "ten")]
         
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MusicCell", for: indexPath) as! Cell
-        let size = CGSize.init(width: 52.0, height: 52.0)
+        //let size = CGSize.init(width: 52.0, height: 52.0)
         
         
+        cell.musicsLabel.text = musicArray[indexPath.row]
+        cell.artistsLabel.text = artistArray[indexPath.row]
+        cell.albumImage.image = albumImgeArray[indexPath.row]
         if (indexPath.row + 1) > (self.musics.getAlbumQuery().items?.count)!{
             cell.musicsLabel.text = ""
             cell.albumImage.image = nil
@@ -195,6 +206,14 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
      
     }
 
+    func setPausePlay(){
+        if(controller.getLocalPlaying()){
+            playOrPause.setImage(#imageLiteral(resourceName: "Pause"), for: .normal)
+        } else {
+            playOrPause.setImage(#imageLiteral(resourceName: "Play"), for: .normal)
+        }
+    }
+    
     
     @IBAction func playOrPause(_ sender: AnyObject) {
         if(controller.getPlaying()){
