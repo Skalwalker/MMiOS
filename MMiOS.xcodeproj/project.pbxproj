@@ -329,7 +329,6 @@
 				TargetAttributes = {
 					884A21671D7B93620017EB42 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = 5SEHAVKAF2;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -565,7 +564,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MMiOS/MMiOS.entitlements;
-				DEVELOPMENT_TEAM = 5SEHAVKAF2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MMiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.roadwaytoss.MMiOS.UnB;
@@ -580,7 +579,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MMiOS/MMiOS.entitlements;
-				DEVELOPMENT_TEAM = 5SEHAVKAF2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MMiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.roadwaytoss.MMiOS.UnB;

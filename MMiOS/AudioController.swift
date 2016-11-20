@@ -16,9 +16,13 @@ class AudioController{
     let MusicPlayer = MPMusicPlayerController()
     
     private var playing: Bool
+    private var lastMusic : [String]
+    private var returns : Int
     
     init(){
         self.playing = MusicPlayer.playbackState == .playing
+        self.lastMusic = [String]()
+        returns = 0
     }
 
     func getPlaying() -> Bool{
@@ -59,8 +63,6 @@ class AudioController{
         MusicPlayer.prepareToPlay()
         
         self.play()
-        
-        MusicPlayer.setQueue(with: model.getSongsQuery())
     }
     
     
@@ -77,11 +79,16 @@ class AudioController{
     }
     
     func skipMusic(){
+        returns = 0
+        lastMusic.append( (MusicPlayer.nowPlayingItem?.title)!)
+        MusicPlayer.setQueue(with: model.getSongsQuery())
         MusicPlayer.skipToNextItem()
     }
     
     func returnMusic(){
-        MusicPlayer.skipToPreviousItem()
+        //MusicPlayer.skipToPreviousItem()
+        self.playWithQueue(musics: model.getSongsQuery(), musicsLabel: lastMusic[lastMusic.count - returns - 1])
+        returns = returns+1
     }
     
     func shuffleMode(){
