@@ -168,12 +168,12 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
         
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MusicCell", for: indexPath) as! Cell
-        //let size = CGSize.init(width: 52.0, height: 52.0)
+        let size = CGSize.init(width: 52.0, height: 52.0)
         
         
-        cell.musicsLabel.text = musicArray[indexPath.row]
-        cell.artistsLabel.text = artistArray[indexPath.row]
-        cell.albumImage.image = albumImgeArray[indexPath.row]
+//        cell.musicsLabel.text = musicArray[indexPath.row]
+//        cell.artistsLabel.text = artistArray[indexPath.row]
+//        cell.albumImage.image = albumImgeArray[indexPath.row]
         if (indexPath.row + 1) > (self.musics.getAlbumQuery().items?.count)!{
             cell.musicsLabel.text = ""
             cell.albumImage.image = nil
