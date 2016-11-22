@@ -144,16 +144,14 @@ class MainMusicVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-//        if musics.getSongQueryCount() == 0{
-//            return 0;
-//        }
-//        
-//        errorView.isHidden = true
-//    
-//        return musics.getSongQueryCount() + 1
+        if musics.getSongQueryCount() == 0{
+            return 0;
+        }
         
+        errorView.isHidden = true
+    
+        return musics.getSongQueryCount() + 1
         
-        return 7
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
