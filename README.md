@@ -12,7 +12,7 @@ Right now the idea is to work on music and video. How deep the features based on
 
 ## Installation
 
-By now the only dependencies you will need is to have a XCode installed on your OS X system that does support Swift 2.
+By now the only dependencies you will need is to have a XCode installed on your OS X system that does support Swift 3.
 
 ## Documentation
 
